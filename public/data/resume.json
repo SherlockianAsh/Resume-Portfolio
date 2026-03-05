@@ -26,7 +26,7 @@
       "location": "Malaysia",
       "startDate": "2023-08",
       "endDate": "2025-04",
-      "description": "- Involved in creating RD, UI, SS, PT spec., PG Coding and PT Execution using Waterfall\n- Document all the process flow involved\n- Using version control like GitHub and GitHub Copilot for code efficiency\n- Task management with Jira, Miro Board and Azure DevOps using Agile Scrum\n- Planning, testing, develop and train junior software engineers\n- Working with Power Automate, Power Apps, Next.JS from Fujitsu Japan\n- Collaborating with Fujitsu teams across the world",
+      "description": "- Led full SDLC documentation - Requirements Definition, UI Design, System Specification, and Test Plans using Waterfall methodology\n- Mentored and trained junior software engineers across planning, development, and testing phases\n- Managed task workflows using Jira, Miro Board, and Azure DevOps with Agile Scrum\n- Developed solutions with Power Automate, Power Apps, and Next.js in collaboration with Fujitsu Japan\n- Coordinated cross-regional collaboration with Fujitsu teams across Asia and Japan",
       "displayOrder": 1
     },
     {
@@ -35,7 +35,7 @@
       "location": "Kuala Lumpur, Malaysia",
       "startDate": "2021-12",
       "endDate": "2023-08",
-      "description": "Content Website Platform (CWP):\n- Work closely with Team Leader and team of 6 Developers, 1 TL, 1 PE\n- Progress Update 2 times Weekly\n\n1) XEMarketer Portal:\n- Maintaining portal in .NET Framework and bug fixes via Jira\n- Develop and Integrate API for User Control System (UCS)\n\n2) Operation Portal:\n- Work closely with Amazon Web Services (AWS)\n- Improve SSL certificate installation to Public LB and AWS\n- Implement Bulk function to add Blacklist IP to AWS S3 then sync to AWS WAF\n\n3) Security Portal:\n- Improve VAPT Booking according to Jira ticket\n\n4) Login Portal:\n- Work with AWS and NoSQL DynamoDB\n- Implement PartiQL for User Management for better throughput",
+      "description": "Content Website Platform (CWP) - Singapore government content management platform:\n- Collaborated in a team of 6 developers maintaining 4 portals across the CWP ecosystem (ASP.NET, C#)\n- Integrated User Control System (UCS) API for XEMarketer Portal\n- Managed SSL certificates and implemented bulk IP blacklisting via AWS S3 to WAF sync for Operation Portal\n- Improved VAPT booking workflows for Security Portal\n- Implemented PartiQL queries on DynamoDB for Login Portal user management, improving query throughput",
       "displayOrder": 2
     },
     {
@@ -44,7 +44,7 @@
       "location": "Malaysia",
       "startDate": "2016-08",
       "endDate": null,
-      "description": "Software Development:\n- Developing Standalone POS System for Grocery Environment (C#, MySQL, Entity Framework)\n- Developing .NET Core App for Qurban Coupon distribution\n- Successfully create cloud server using DigitalOcean\n- Successfully create and maintain MySQL server over cloud\n- Successfully deploying .NET Core app to Linux environment\n- Successfully deploying PHP web for Qurban Event\n- Develop Attendance System based on hardware data (MySQL and MSSQL)\n- Developing and integrating Twilio service for Qurban Coupon Management\n\nHardware:\n- Implement face-recognition terminal for attendance access\n- Implement wireless CCTV",
+      "description": "Independent & Freelance Projects:\n- Built standalone POS System for grocery retail with inventory management and sales reporting (C#, MySQL, Entity Framework)\n- Developed Qurban Coupon Management System with OneWaySMS notifications, serving community events annually (.NET Core, MySQL)\n- Deployed and maintained cloud infrastructure on DigitalOcean - Linux server, MySQL database, and .NET Core applications\n- Built Attendance System integrating hardware biometric data with dual-database backend (MySQL, MSSQL)\n- Deployed PHP-based event registration portal for Qurban operations\n\nHardware & IoT:\n- Implemented face-recognition terminal for access control and attendance tracking\n- Set up wireless CCTV surveillance system",
       "displayOrder": 3
     },
     {
@@ -53,7 +53,7 @@
       "location": "Damansara, Selangor, Malaysia",
       "startDate": "2018-10",
       "endDate": "2021-11",
-      "description": "- Develop and enhance POS System (VB.NET, MySQL)\n- Integrate Credit Card Terminal with POS System (C#, MySQL)\n- Integrate E-Wallet Payment with POS System (C# Web API, MySQL)\n- Develop and enhance KDS (Kitchen Display System) (VB.NET, MySQL)\n- Provide solutions and work closely with QC teams to fix Bug before release to Production",
+      "description": "- Developed and maintained POS System for F&B operations (VB.NET, MySQL)\n- Integrated credit card terminal and e-wallet payment gateways with POS System (C# Web API)\n- Built Kitchen Display System (KDS) for real-time order management (VB.NET, MySQL)\n- Collaborated with QC teams on bug resolution and pre-production quality assurance",
       "displayOrder": 4
     },
     {
@@ -62,7 +62,7 @@
       "location": "Puchong, Selangor, Malaysia",
       "startDate": "2017-06",
       "endDate": "2018-09",
-      "description": "- Develop and enhance Stock Management System (C#, MSSQL)\n- Gathering user requirement to develop Stocktaking System\n- Develop and enhance Stocktaking System (C#, SQLite)\n- Develop and enhance Asset Management System (C#, MSSQL)",
+      "description": "- Developed Stock Management System with barcode scanning support (C#, MSSQL)\n- Gathered user requirements and built Stocktaking System from ground up (C#, SQLite)\n- Enhanced Asset Management System for enterprise asset tracking (C#, MSSQL)",
       "displayOrder": 5
     },
     {
@@ -71,7 +71,7 @@
       "location": "Malaysia",
       "startDate": "2016-08",
       "endDate": "2017-05",
-      "description": "- Perform Data entry for website\n- Involve in front-end development",
+      "description": "- Contributed to front-end web development and content management",
       "displayOrder": 6
     },
     {
@@ -80,7 +80,7 @@
       "location": "Malaysia",
       "startDate": "2015-02",
       "endDate": "2015-05",
-      "description": "- Gathering user requirement from MARA\n- Develop and enhance Payroll System for MARA\n- Perform Server Migration for MARA\n- Perform UAT on system testing with MARA",
+      "description": "- Gathered requirements and developed Payroll System for MARA (VB.NET)\n- Performed server migration and UAT testing with MARA stakeholders",
       "displayOrder": 7
     }
   ],
@@ -270,6 +270,13 @@
       "issueDate": "2016-05",
       "expiryDate": null,
       "credentialUrl": null
+    },
+    {
+      "certName": "Train the Trainer (TTT)",
+      "issuingOrg": "Jabatan Pembangunan Kemahiran (JPK)",
+      "issueDate": "2025-07",
+      "expiryDate": null,
+      "credentialUrl": null
     }
   ],
   "projects": [
@@ -283,8 +290,8 @@
     },
     {
       "projectName": "Qurban Coupon Management System",
-      "description": ".NET Core application for facilitating Qurban coupon distribution with Twilio SMS integration for notifications",
-      "technologiesUsed": "C#, .NET Core, MySQL, Entity Framework, Twilio API, DigitalOcean",
+      "description": ".NET Core application for facilitating Qurban coupon distribution with OneWaySMS integration for notifications",
+      "technologiesUsed": "C#, .NET Core, MySQL, Entity Framework, OneWaySMS API, DigitalOcean",
       "projectUrl": null,
       "startDate": "2019-01",
       "endDate": "2023-08"

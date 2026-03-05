@@ -12,11 +12,20 @@
   },
   "experiences": [
     {
+      "company": "Rosemallow Technologies Ptd Ltd (Client: E-Tech IT Sdn Bhd)",
+      "position": ".NET Consultant",
+      "location": "Shah Alam, Malaysia (On-site)",
+      "startDate": "2025-07",
+      "endDate": null,
+      "description": "- Maintained and enhanced Visitor Management System (bSwift) — .NET Core 8, JavaScript, React Native kiosk app (IC/Passport OCR), HikVision face terminal integration (ISAPI)\n- Developed Event Registration System (ERS) — Next.js 15, .NET 10, web and kiosk platform\n- Developed Ticketing System (iDex) — .NET 10, React 19, PostgreSQL, SLA monitoring, email automation\n- Client-facing consultation — requirements gathering, solution proposals, and technical presentations\n- Clean Architecture, CI/CD pipeline management",
+      "displayOrder": 0
+    },
+    {
       "company": "Fujitsu",
       "position": "Senior System Engineer",
       "location": "Malaysia",
       "startDate": "2023-08",
-      "endDate": null,
+      "endDate": "2025-04",
       "description": "- Involved in creating RD, UI, SS, PT spec., PG Coding and PT Execution using Waterfall\n- Document all the process flow involved\n- Using version control like GitHub and GitHub Copilot for code efficiency\n- Task management with Jira, Miro Board and Azure DevOps using Agile Scrum\n- Planning, testing, develop and train junior software engineers\n- Working with Power Automate, Power Apps, Next.JS from Fujitsu Japan\n- Collaborating with Fujitsu teams across the world",
       "displayOrder": 1
     },
@@ -30,11 +39,11 @@
       "displayOrder": 2
     },
     {
-      "company": "Freelance",
+      "company": "Ashlock Tech Solutions",
       "position": "Software Engineer",
       "location": "Malaysia",
       "startDate": "2016-08",
-      "endDate": "2023-08",
+      "endDate": null,
       "description": "Software Development:\n- Developing Standalone POS System for Grocery Environment (C#, MySQL, Entity Framework)\n- Developing .NET Core App for Qurban Coupon distribution\n- Successfully create cloud server using DigitalOcean\n- Successfully create and maintain MySQL server over cloud\n- Successfully deploying .NET Core app to Linux environment\n- Successfully deploying PHP web for Qurban Event\n- Develop Attendance System based on hardware data (MySQL and MSSQL)\n- Developing and integrating Twilio service for Qurban Coupon Management\n\nHardware:\n- Implement face-recognition terminal for attendance access\n- Implement wireless CCTV",
       "displayOrder": 3
     },
@@ -96,36 +105,156 @@
     }
   ],
   "skills": [
-    { "skillName": "C#", "category": "Programming", "proficiencyLevel": "Expert" },
-    { "skillName": "VB.NET", "category": "Programming", "proficiencyLevel": "Advanced" },
-    { "skillName": "JavaScript", "category": "Programming", "proficiencyLevel": "Advanced" },
-    { "skillName": "TypeScript", "category": "Programming", "proficiencyLevel": "Advanced" },
-    { "skillName": "PHP", "category": "Programming", "proficiencyLevel": "Intermediate" },
-    { "skillName": ".NET Framework", "category": "Framework", "proficiencyLevel": "Expert" },
-    { "skillName": ".NET Core", "category": "Framework", "proficiencyLevel": "Expert" },
-    { "skillName": "ASP.NET Core", "category": "Framework", "proficiencyLevel": "Expert" },
-    { "skillName": "Entity Framework", "category": "Framework", "proficiencyLevel": "Expert" },
-    { "skillName": "Next.js", "category": "Framework", "proficiencyLevel": "Advanced" },
-    { "skillName": "Vue.js / Nuxt", "category": "Framework", "proficiencyLevel": "Advanced" },
-    { "skillName": "Flutter", "category": "Framework", "proficiencyLevel": "Intermediate" },
-    { "skillName": "React Native", "category": "Framework", "proficiencyLevel": "Intermediate" },
-    { "skillName": "MySQL", "category": "Database", "proficiencyLevel": "Expert" },
-    { "skillName": "MSSQL", "category": "Database", "proficiencyLevel": "Advanced" },
-    { "skillName": "PostgreSQL", "category": "Database", "proficiencyLevel": "Advanced" },
-    { "skillName": "SQLite", "category": "Database", "proficiencyLevel": "Advanced" },
-    { "skillName": "Amazon DynamoDB", "category": "Database", "proficiencyLevel": "Intermediate" },
-    { "skillName": "Amazon Web Services (AWS)", "category": "Cloud", "proficiencyLevel": "Intermediate" },
-    { "skillName": "DigitalOcean", "category": "Cloud", "proficiencyLevel": "Advanced" },
-    { "skillName": "Docker", "category": "DevOps", "proficiencyLevel": "Intermediate" },
-    { "skillName": "Git / GitHub", "category": "DevOps", "proficiencyLevel": "Expert" },
-    { "skillName": "GitHub Copilot", "category": "Tools", "proficiencyLevel": "Advanced" },
-    { "skillName": "Azure DevOps", "category": "DevOps", "proficiencyLevel": "Intermediate" },
-    { "skillName": "Jira", "category": "Tools", "proficiencyLevel": "Advanced" },
-    { "skillName": "Agile Scrum", "category": "Methodology", "proficiencyLevel": "Advanced" },
-    { "skillName": "Power Automate", "category": "Tools", "proficiencyLevel": "Intermediate" },
-    { "skillName": "Power Apps", "category": "Tools", "proficiencyLevel": "Intermediate" },
-    { "skillName": "Small Team Management", "category": "Soft Skill", "proficiencyLevel": "Advanced" },
-    { "skillName": "Junior Developer Mentoring", "category": "Soft Skill", "proficiencyLevel": "Advanced" }
+    {
+      "skillName": "C#",
+      "category": "Programming",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": "VB.NET",
+      "category": "Programming",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "JavaScript",
+      "category": "Programming",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "TypeScript",
+      "category": "Programming",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "PHP",
+      "category": "Programming",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": ".NET Framework",
+      "category": "Framework",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": ".NET Core",
+      "category": "Framework",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": "ASP.NET Core",
+      "category": "Framework",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": "Entity Framework",
+      "category": "Framework",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": "Next.js",
+      "category": "Framework",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Vue.js / Nuxt",
+      "category": "Framework",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Flutter",
+      "category": "Framework",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "React Native",
+      "category": "Framework",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "MySQL",
+      "category": "Database",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": "MSSQL",
+      "category": "Database",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "PostgreSQL",
+      "category": "Database",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "SQLite",
+      "category": "Database",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Amazon DynamoDB",
+      "category": "Database",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "Amazon Web Services (AWS)",
+      "category": "Cloud",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "DigitalOcean",
+      "category": "Cloud",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Docker",
+      "category": "DevOps",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "Git / GitHub",
+      "category": "DevOps",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "skillName": "GitHub Copilot",
+      "category": "Tools",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Azure DevOps",
+      "category": "DevOps",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "Jira",
+      "category": "Tools",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Agile Scrum",
+      "category": "Methodology",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Power Automate",
+      "category": "Tools",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "Power Apps",
+      "category": "Tools",
+      "proficiencyLevel": "Intermediate"
+    },
+    {
+      "skillName": "Small Team Management",
+      "category": "Soft Skill",
+      "proficiencyLevel": "Advanced"
+    },
+    {
+      "skillName": "Junior Developer Mentoring",
+      "category": "Soft Skill",
+      "proficiencyLevel": "Advanced"
+    }
   ],
   "certifications": [
     {
@@ -207,6 +336,62 @@
       "projectUrl": "https://github.com/SherlockianAsh",
       "startDate": "2024-09",
       "endDate": null
+    },
+    {
+      "projectName": "bSwift - Visitor Management System",
+      "description": "Enterprise visitor management with kiosk registration, IC/Passport OCR scanning, and HikVision face terminal integration via ISAPI",
+      "technologiesUsed": ".NET Core 8, JavaScript, React Native, SignalR, HikVision ISAPI",
+      "projectUrl": null,
+      "startDate": "2025-07",
+      "endDate": null
+    },
+    {
+      "projectName": "POS System (CMG)",
+      "description": "Point-of-sale system for F&B environment with credit card terminal and e-wallet payment integration",
+      "technologiesUsed": "VB.NET, C# Web API, MySQL",
+      "projectUrl": null,
+      "startDate": "2018-10",
+      "endDate": "2021-11"
+    },
+    {
+      "projectName": "Content Website Platform (CWP)",
+      "description": "Singapore government content management platform comprising 4 portals: XEMarketer Portal (API integration), Operation Portal (AWS WAF/S3, SSL management), Security Portal (VAPT booking), and Login Portal (DynamoDB, PartiQL user management)",
+      "technologiesUsed": "ASP.NET, C#, AWS (WAF, S3, DynamoDB), NoSQL, PartiQL",
+      "projectUrl": null,
+      "startDate": "2021-12",
+      "endDate": "2023-08"
+    },
+    {
+      "projectName": "Stock Management & Stocktaking System",
+      "description": "Inventory management and stocktaking system for warehouse operations with barcode scanning support",
+      "technologiesUsed": "C#, MSSQL, SQLite",
+      "projectUrl": null,
+      "startDate": "2017-06",
+      "endDate": "2018-09"
+    },
+    {
+      "projectName": "Asset Management System",
+      "description": "Enterprise asset tracking and management system",
+      "technologiesUsed": "C#, MSSQL",
+      "projectUrl": null,
+      "startDate": "2017-06",
+      "endDate": "2018-09"
+    },
+    {
+      "projectName": "Resume Portfolio",
+      "description": "Personal portfolio site with admin panel for editing resume data via GitHub Contents API. Firebase Auth for admin access, GitHub Pages for hosting",
+      "technologiesUsed": "React 19, TypeScript, Vite, Firebase Auth, GitHub API",
+      "projectUrl": "https://ashlock-tech.my",
+      "startDate": "2026-02",
+      "endDate": null
+    },
+    {
+      "projectName": "Payroll System (MARA)",
+      "description": "Payroll management system developed for MARA including server migration and UAT testing",
+      "technologiesUsed": "VB.NET, Web",
+      "projectUrl": null,
+      "startDate": "2015-02",
+      "endDate": "2015-05"
     }
   ]
 }

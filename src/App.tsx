@@ -6,12 +6,14 @@ import Landing from "./pages/Landing";
 import Resume from "./pages/Resume";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import Card from "./pages/Card";
 
 import "./styles/base.css";
 import "./styles/landing.css";
 import "./styles/resume.css";
 import "./styles/print.css";
 import "./styles/admin.css";
+import "./styles/card.css";
 
 export default function App() {
   return (
@@ -21,6 +23,7 @@ export default function App() {
           <Route element={<PublicLayout />}>
             <Route path="/" element={<Landing />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/card" element={<Card />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route

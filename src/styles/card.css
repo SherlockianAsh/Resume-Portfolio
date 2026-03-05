@@ -1,0 +1,284 @@
+/**
+ * Resume Portfolio - E-Business Card Styles
+ * Theme: Baker Street Dark — Amber Gold on Charcoal
+ * Mobile-first, single-screen digital business card
+ */
+
+/* =====================================================
+   Card Page — Full viewport, centered
+   ===================================================== */
+.card-page {
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--space-4) + 80px) var(--space-4) var(--space-4);
+    position: relative;
+}
+
+.card-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(212, 168, 71, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.card-loading {
+    color: var(--text-muted);
+    font-size: var(--text-lg);
+}
+
+/* =====================================================
+   Card Container — The "card" itself
+   ===================================================== */
+.card-container {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+.card-body {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rounded-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+}
+
+/* =====================================================
+   Accent Bar — Gold top stripe
+   ===================================================== */
+.card-accent {
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-light));
+}
+
+/* =====================================================
+   Profile Section
+   ===================================================== */
+.card-profile {
+    text-align: center;
+    padding: var(--space-8) var(--space-6) var(--space-4);
+}
+
+.card-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-4);
+}
+
+.card-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--rounded-full);
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(212, 168, 71, 0.15);
+}
+
+.card-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--rounded-full);
+    background: var(--bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    border: 3px solid var(--primary);
+    color: var(--primary);
+}
+
+.card-name {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-heading);
+    margin-bottom: var(--space-1);
+}
+
+.card-title {
+    font-size: var(--text-sm);
+    color: var(--primary);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--space-1);
+}
+
+.card-company {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+/* =====================================================
+   Contact Links
+   ===================================================== */
+.card-links {
+    padding: 0 var(--space-4) var(--space-4);
+}
+
+.card-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-3);
+    border-radius: var(--rounded-md);
+    text-decoration: none;
+    color: var(--text);
+    transition: all var(--transition-fast);
+}
+
+.card-link:hover {
+    background: var(--bg-elevated);
+    color: var(--primary-light);
+}
+
+.card-link-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-subtle);
+    color: var(--primary);
+    border-radius: var(--rounded-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.card-link:hover .card-link-icon {
+    background: var(--primary);
+    color: var(--text-on-primary);
+}
+
+.card-link-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.card-link-label {
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.card-link:hover .card-link-label {
+    color: var(--text-muted);
+}
+
+.card-link-value {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =====================================================
+   QR Code Section
+   ===================================================== */
+.card-qr {
+    text-align: center;
+    padding: var(--space-3) var(--space-6);
+    border-top: 1px solid var(--border-light);
+}
+
+.card-qr-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--space-2);
+    border-radius: var(--rounded-md);
+}
+
+.card-qr-label {
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   Action Buttons
+   ===================================================== */
+.card-actions {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-4) var(--space-6);
+}
+
+.card-btn-save,
+.card-btn-portfolio {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--rounded-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+}
+
+.card-btn-save {
+    background: var(--primary);
+    color: var(--text-on-primary);
+}
+
+.card-btn-save:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(212, 168, 71, 0.3);
+}
+
+.card-btn-portfolio {
+    background: var(--bg-elevated);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.card-btn-portfolio:hover {
+    background: var(--border);
+    color: var(--text-heading);
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+   Mobile Responsive
+   ===================================================== */
+@media (max-width: 480px) {
+    .card-page {
+        padding: var(--space-3);
+        align-items: flex-start;
+        padding-top: calc(var(--space-3) + 70px);
+    }
+
+    .card-profile {
+        padding: var(--space-6) var(--space-4) var(--space-3);
+    }
+
+    .card-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-name {
+        font-size: var(--text-lg);
+    }
+
+    .card-qr-img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* =====================================================
+   Print — Hide card page from printing
+   ===================================================== */
+@media print {
+    .card-page { display: none; }
+}

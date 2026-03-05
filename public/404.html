@@ -6,7 +6,7 @@
   <script>
     // SPA redirect for GitHub Pages
     // Converts /Resume-Portfolio/admin into /?/admin so index.html handles routing
-    var pathSegmentsToKeep = 1; // /Resume-Portfolio is the base
+    var pathSegmentsToKeep = 0; // Custom domain — no base path prefix
     var l = window.location;
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +

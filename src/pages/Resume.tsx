@@ -151,7 +151,7 @@ export default function Resume() {
 
           {/* Projects */}
           {projects.length > 0 && (
-            <section className="resume-section">
+            <section className="resume-section resume-section-projects">
               <h2 className="resume-section-title">Projects</h2>
               {projects.map((project, i) => (
                 <div className="resume-project" key={i}>

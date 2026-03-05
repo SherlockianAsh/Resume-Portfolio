@@ -1,0 +1,212 @@
+{
+  "profile": {
+    "fullName": "Muhammad Asyrof Mohd Nasir",
+    "title": "Senior Software Engineer",
+    "email": "asyrof.nasir@gmail.com",
+    "phone": "+60149055633",
+    "location": "Shah Alam, Selangor, Malaysia",
+    "linkedinUrl": "https://www.linkedin.com/in/muhammadasyrof-mohd-nasir-44a54a105",
+    "githubUrl": "https://github.com/SherlockianAsh",
+    "summary": "Hi, my name is Muhammad Asyrof bin Mohd Nasir, but you can call me Ash or Asyrof. I am a Senior Software Developer with nearly 8 years of experience working across various industries. I hold a bachelor's degree in Computer Science, majoring in System and Networking, from Universiti Tenaga Nasional (Energy University), graduating with Second Class Upper honors.\n\nI'm passionate about exploring and learning more about Cloud Computing. My expertise includes C#, .NET Framework, and .NET Core, along with experience in MySQL, MSSQL, and NoSQL databases like Amazon DynamoDB. Additionally, I'm expanding my skills in Flutter, React Native, and Next.js.",
+    "profileImage": "images/profile.jpg"
+  },
+  "experiences": [
+    {
+      "company": "Fujitsu",
+      "position": "Senior System Engineer",
+      "location": "Malaysia",
+      "startDate": "2023-08",
+      "endDate": null,
+      "description": "- Involved in creating RD, UI, SS, PT spec., PG Coding and PT Execution using Waterfall\n- Document all the process flow involved\n- Using version control like GitHub and GitHub Copilot for code efficiency\n- Task management with Jira, Miro Board and Azure DevOps using Agile Scrum\n- Planning, testing, develop and train junior software engineers\n- Working with Power Automate, Power Apps, Next.JS from Fujitsu Japan\n- Collaborating with Fujitsu teams across the world",
+      "displayOrder": 1
+    },
+    {
+      "company": "Xtremax",
+      "position": "Software Developer - Backend",
+      "location": "Kuala Lumpur, Malaysia",
+      "startDate": "2021-12",
+      "endDate": "2023-08",
+      "description": "Content Website Platform (CWP):\n- Work closely with Team Leader and team of 6 Developers, 1 TL, 1 PE\n- Progress Update 2 times Weekly\n\n1) XEMarketer Portal:\n- Maintaining portal in .NET Framework and bug fixes via Jira\n- Develop and Integrate API for User Control System (UCS)\n\n2) Operation Portal:\n- Work closely with Amazon Web Services (AWS)\n- Improve SSL certificate installation to Public LB and AWS\n- Implement Bulk function to add Blacklist IP to AWS S3 then sync to AWS WAF\n\n3) Security Portal:\n- Improve VAPT Booking according to Jira ticket\n\n4) Login Portal:\n- Work with AWS and NoSQL DynamoDB\n- Implement PartiQL for User Management for better throughput",
+      "displayOrder": 2
+    },
+    {
+      "company": "Freelance",
+      "position": "Software Engineer",
+      "location": "Malaysia",
+      "startDate": "2016-08",
+      "endDate": "2023-08",
+      "description": "Software Development:\n- Developing Standalone POS System for Grocery Environment (C#, MySQL, Entity Framework)\n- Developing .NET Core App for Qurban Coupon distribution\n- Successfully create cloud server using DigitalOcean\n- Successfully create and maintain MySQL server over cloud\n- Successfully deploying .NET Core app to Linux environment\n- Successfully deploying PHP web for Qurban Event\n- Develop Attendance System based on hardware data (MySQL and MSSQL)\n- Developing and integrating Twilio service for Qurban Coupon Management\n\nHardware:\n- Implement face-recognition terminal for attendance access\n- Implement wireless CCTV",
+      "displayOrder": 3
+    },
+    {
+      "company": "CMG Technologies",
+      "position": "Software Developer",
+      "location": "Damansara, Selangor, Malaysia",
+      "startDate": "2018-10",
+      "endDate": "2021-11",
+      "description": "- Develop and enhance POS System (VB.NET, MySQL)\n- Integrate Credit Card Terminal with POS System (C#, MySQL)\n- Integrate E-Wallet Payment with POS System (C# Web API, MySQL)\n- Develop and enhance KDS (Kitchen Display System) (VB.NET, MySQL)\n- Provide solutions and work closely with QC teams to fix Bug before release to Production",
+      "displayOrder": 4
+    },
+    {
+      "company": "Globalsion Software Sdn Bhd",
+      "position": "Software Developer",
+      "location": "Puchong, Selangor, Malaysia",
+      "startDate": "2017-06",
+      "endDate": "2018-09",
+      "description": "- Develop and enhance Stock Management System (C#, MSSQL)\n- Gathering user requirement to develop Stocktaking System\n- Develop and enhance Stocktaking System (C#, SQLite)\n- Develop and enhance Asset Management System (C#, MSSQL)",
+      "displayOrder": 5
+    },
+    {
+      "company": "Snap Innovations Sdn Bhd",
+      "position": "Software Developer",
+      "location": "Malaysia",
+      "startDate": "2016-08",
+      "endDate": "2017-05",
+      "description": "- Perform Data entry for website\n- Involve in front-end development",
+      "displayOrder": 6
+    },
+    {
+      "company": "Unijaya Resources Sdn Bhd",
+      "position": "Internship - Web Programmer",
+      "location": "Malaysia",
+      "startDate": "2015-02",
+      "endDate": "2015-05",
+      "description": "- Gathering user requirement from MARA\n- Develop and enhance Payroll System for MARA\n- Perform Server Migration for MARA\n- Perform UAT on system testing with MARA",
+      "displayOrder": 7
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universiti Tenaga Nasional (UNITEN)",
+      "degree": "Bachelor's Degree",
+      "fieldOfStudy": "Computer Science (System & Networking)",
+      "location": "Malaysia",
+      "startDate": "2013-09",
+      "endDate": "2016-06",
+      "description": "Second Class Upper Honours\nEnergy University - Focus on System and Networking"
+    },
+    {
+      "institution": "SMK Dato' Wan Mohd Saman",
+      "degree": "High School (SPM)",
+      "fieldOfStudy": "Agriculture Science",
+      "location": "Malaysia",
+      "startDate": "2007-01",
+      "endDate": "2011-12",
+      "description": null
+    }
+  ],
+  "skills": [
+    { "skillName": "C#", "category": "Programming", "proficiencyLevel": "Expert" },
+    { "skillName": "VB.NET", "category": "Programming", "proficiencyLevel": "Advanced" },
+    { "skillName": "JavaScript", "category": "Programming", "proficiencyLevel": "Advanced" },
+    { "skillName": "TypeScript", "category": "Programming", "proficiencyLevel": "Advanced" },
+    { "skillName": "PHP", "category": "Programming", "proficiencyLevel": "Intermediate" },
+    { "skillName": ".NET Framework", "category": "Framework", "proficiencyLevel": "Expert" },
+    { "skillName": ".NET Core", "category": "Framework", "proficiencyLevel": "Expert" },
+    { "skillName": "ASP.NET Core", "category": "Framework", "proficiencyLevel": "Expert" },
+    { "skillName": "Entity Framework", "category": "Framework", "proficiencyLevel": "Expert" },
+    { "skillName": "Next.js", "category": "Framework", "proficiencyLevel": "Advanced" },
+    { "skillName": "Vue.js / Nuxt", "category": "Framework", "proficiencyLevel": "Advanced" },
+    { "skillName": "Flutter", "category": "Framework", "proficiencyLevel": "Intermediate" },
+    { "skillName": "React Native", "category": "Framework", "proficiencyLevel": "Intermediate" },
+    { "skillName": "MySQL", "category": "Database", "proficiencyLevel": "Expert" },
+    { "skillName": "MSSQL", "category": "Database", "proficiencyLevel": "Advanced" },
+    { "skillName": "PostgreSQL", "category": "Database", "proficiencyLevel": "Advanced" },
+    { "skillName": "SQLite", "category": "Database", "proficiencyLevel": "Advanced" },
+    { "skillName": "Amazon DynamoDB", "category": "Database", "proficiencyLevel": "Intermediate" },
+    { "skillName": "Amazon Web Services (AWS)", "category": "Cloud", "proficiencyLevel": "Intermediate" },
+    { "skillName": "DigitalOcean", "category": "Cloud", "proficiencyLevel": "Advanced" },
+    { "skillName": "Docker", "category": "DevOps", "proficiencyLevel": "Intermediate" },
+    { "skillName": "Git / GitHub", "category": "DevOps", "proficiencyLevel": "Expert" },
+    { "skillName": "GitHub Copilot", "category": "Tools", "proficiencyLevel": "Advanced" },
+    { "skillName": "Azure DevOps", "category": "DevOps", "proficiencyLevel": "Intermediate" },
+    { "skillName": "Jira", "category": "Tools", "proficiencyLevel": "Advanced" },
+    { "skillName": "Agile Scrum", "category": "Methodology", "proficiencyLevel": "Advanced" },
+    { "skillName": "Power Automate", "category": "Tools", "proficiencyLevel": "Intermediate" },
+    { "skillName": "Power Apps", "category": "Tools", "proficiencyLevel": "Intermediate" },
+    { "skillName": "Small Team Management", "category": "Soft Skill", "proficiencyLevel": "Advanced" },
+    { "skillName": "Junior Developer Mentoring", "category": "Soft Skill", "proficiencyLevel": "Advanced" }
+  ],
+  "certifications": [
+    {
+      "certName": "Senior Professional Agile",
+      "issuingOrg": "Agile Certification Body",
+      "issueDate": "2023-01",
+      "expiryDate": null,
+      "credentialUrl": null
+    },
+    {
+      "certName": "ITEX Gold Medal",
+      "issuingOrg": "International Invention, Innovation & Technology Exhibition",
+      "issueDate": "2016-05",
+      "expiryDate": null,
+      "credentialUrl": null
+    }
+  ],
+  "projects": [
+    {
+      "projectName": "POS System for Grocery",
+      "description": "Standalone Point of Sale System for grocery retail environment with inventory management and sales tracking",
+      "technologiesUsed": "C#, MySQL, Entity Framework, Windows Forms",
+      "projectUrl": null,
+      "startDate": "2016-08",
+      "endDate": "2020-12"
+    },
+    {
+      "projectName": "Qurban Coupon Management System",
+      "description": ".NET Core application for facilitating Qurban coupon distribution with Twilio SMS integration for notifications",
+      "technologiesUsed": "C#, .NET Core, MySQL, Entity Framework, Twilio API, DigitalOcean",
+      "projectUrl": null,
+      "startDate": "2019-01",
+      "endDate": "2023-08"
+    },
+    {
+      "projectName": "Kitchen Display System (KDS)",
+      "description": "Real-time kitchen order display system integrated with POS for restaurant operations",
+      "technologiesUsed": "VB.NET, MySQL, Windows Forms",
+      "projectUrl": null,
+      "startDate": "2018-10",
+      "endDate": "2021-11"
+    },
+    {
+      "projectName": "Credit Card & E-Wallet Integration",
+      "description": "Payment gateway integration module connecting POS system with credit card terminals and e-wallet providers",
+      "technologiesUsed": "C#, Web API, MySQL",
+      "projectUrl": null,
+      "startDate": "2019-06",
+      "endDate": "2021-11"
+    },
+    {
+      "projectName": "Attendance System with Face Recognition",
+      "description": "Attendance tracking system integrated with face-recognition hardware terminals",
+      "technologiesUsed": "C#, MySQL, MSSQL, Hardware Integration",
+      "projectUrl": null,
+      "startDate": "2020-01",
+      "endDate": "2022-12"
+    },
+    {
+      "projectName": "TariQMS - Tariqa Management System",
+      "description": "Comprehensive Sufi school management system with student registration, payment tracking, and online learning features",
+      "technologiesUsed": "ASP.NET Core 9, Nuxt 3, PostgreSQL, Clean Architecture, Docker",
+      "projectUrl": "https://github.com/SherlockianAsh",
+      "startDate": "2024-01",
+      "endDate": null
+    },
+    {
+      "projectName": "iDex Ticketing System",
+      "description": "Enterprise ticketing system with intelligent assignment, SLA monitoring, and escalation workflows",
+      "technologiesUsed": "ASP.NET Core 9, React, PostgreSQL, SignalR, Clean Architecture",
+      "projectUrl": "https://github.com/SherlockianAsh",
+      "startDate": "2024-06",
+      "endDate": null
+    },
+    {
+      "projectName": "Event Registration System (ERS)",
+      "description": "Multi-tenant event registration platform with QR codes, badge printing, and email automation",
+      "technologiesUsed": "ASP.NET Core, Next.js, PostgreSQL, Docker",
+      "projectUrl": "https://github.com/SherlockianAsh",
+      "startDate": "2024-09",
+      "endDate": null
+    }
+  ]
+}

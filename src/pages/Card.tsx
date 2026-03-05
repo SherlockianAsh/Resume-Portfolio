@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useResume } from "../hooks/useResume";
 
 export default function Card() {
@@ -21,6 +22,16 @@ export default function Card() {
 
   const { profile } = data;
   const cardUrl = `${window.location.origin}/card`;
+
+  useEffect(() => {
+    document.title = `${profile.fullName} — Digital Business Card`;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", `${profile.fullName} — ${profile.title} at Ashlock Tech Solutions. Contact, connect, and save.`);
+    return () => {
+      document.title = "Ashlock Tech Solutions - Resume Portfolio";
+      if (meta) meta.setAttribute("content", "Ashlock Tech Solutions — .NET Consultant specializing in enterprise systems, ticketing, and IoT integration");
+    };
+  }, [profile]);
 
   const escVcard = (s: string) => s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,");
 

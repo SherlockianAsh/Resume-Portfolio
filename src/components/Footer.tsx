@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <p className="footer-text">
-          &copy; {new Date().getFullYear()} Resume Portfolio
+          &copy; {new Date().getFullYear()} Ashlock Tech Solutions
         </p>
       </div>
     </footer>

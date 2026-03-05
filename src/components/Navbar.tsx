@@ -23,7 +23,7 @@ export default function Navbar({ name }: { name: string }) {
           >
             Resume
           </Link>
-          <a href="#contact" className="navbar-link">
+          <a href="/#contact" className="navbar-link">
             Contact
           </a>
         </div>

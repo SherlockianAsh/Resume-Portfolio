@@ -98,15 +98,14 @@
     .resume-entry-description li { margin-bottom: 2pt !important; }
 
     .resume-header {
-        padding-bottom: 8pt !important;
-        margin-bottom: 10pt !important;
+        padding-bottom: 6pt !important;
+        margin-bottom: 8pt !important;
         border-bottom: 1pt solid #000 !important;
     }
 
-    .resume-section { margin-bottom: 10pt !important; }
+    .resume-section { margin-bottom: 8pt !important; }
 
     .resume-entry { page-break-inside: avoid; }
-    .resume-section { page-break-inside: avoid; }
     h1, h2, h3, h4 { page-break-after: avoid; }
 
     a { text-decoration: none !important; }

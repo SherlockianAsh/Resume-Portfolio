@@ -2,7 +2,18 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 
 export default function Login() {
-  const { user, isAdmin, loading, login } = useAuth();
+  const { user, isAdmin, loading, configured, login } = useAuth();
+
+  if (!configured) {
+    return (
+      <div className="admin-center">
+        <div className="admin-login-card">
+          <h1>Admin Login</h1>
+          <p className="admin-error">Firebase is not configured. Set environment variables to enable auth.</p>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

@@ -6,6 +6,7 @@ interface AuthState {
   user: User | null;
   isAdmin: boolean;
   loading: boolean;
+  configured: boolean;
   login: () => Promise<void>;
   logout: () => Promise<void>;
 }
@@ -17,9 +18,11 @@ const googleProvider = new GoogleAuthProvider();
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!auth);
+  const configured = !!auth;
 
   useEffect(() => {
+    if (!auth) return;
     return onAuthStateChanged(auth, (u) => {
       setUser(u);
       setLoading(false);
@@ -29,16 +32,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const isAdmin = user?.email === ADMIN_EMAIL;
 
   const login = async () => {
+    if (!auth) return;
     await signInWithPopup(auth, googleProvider);
   };
 
   const logout = async () => {
+    if (!auth) return;
     sessionStorage.removeItem("github_pat");
     await signOut(auth);
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, isAdmin, loading, configured, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

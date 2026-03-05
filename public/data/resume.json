@@ -17,7 +17,7 @@
       "location": "Shah Alam, Malaysia (On-site)",
       "startDate": "2025-07",
       "endDate": null,
-      "description": "- Maintained and enhanced Visitor Management System (bSwift) — .NET Core 8, JavaScript, React Native kiosk app (IC/Passport OCR), HikVision face terminal integration (ISAPI)\n- Developed Event Registration System (ERS) — Next.js 15, .NET 10, web and kiosk platform\n- Developed Ticketing System (iDex) — .NET 10, React 19, PostgreSQL, SLA monitoring, email automation\n- Client-facing consultation — requirements gathering, solution proposals, and technical presentations\n- Clean Architecture, CI/CD pipeline management",
+      "description": "- Maintained and enhanced Visitor Management System (bSwift) - .NET Core 8, JavaScript, React Native kiosk app (IC/Passport OCR), HikVision face terminal integration (ISAPI)\n- Developed Event Registration System (ERS) - Next.js 15, .NET 10, web and kiosk platform\n- Developed Ticketing System (iDex) - .NET 10, React 19, PostgreSQL, SLA monitoring, email automation\n- Client-facing consultation - requirements gathering, solution proposals, and technical presentations\n- Clean Architecture, CI/CD pipeline management",
       "displayOrder": 0
     },
     {

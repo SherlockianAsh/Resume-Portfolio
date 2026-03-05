@@ -1,20 +1,21 @@
 /**
  * Resume Portfolio - Landing Page Styles
- * Theme: Cobalt Blue (#0047AB) + White
+ * Theme: Baker Street Dark — Amber Gold on Charcoal
  */
 
 /* =====================================================
    Navigation
    ===================================================== */
 .navbar {
-    background: var(--primary);
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
     padding: var(--space-4) 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: var(--z-fixed);
-    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(12px);
 }
 
 .navbar .container {
@@ -27,7 +28,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    color: var(--white);
+    color: var(--text-heading);
     text-decoration: none;
     font-weight: var(--font-bold);
     font-size: var(--text-lg);
@@ -36,8 +37,8 @@
 .navbar-brand-icon {
     width: 36px;
     height: 36px;
-    background: var(--white);
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--text-on-primary);
     border-radius: var(--rounded-md);
     display: flex;
     align-items: center;
@@ -52,64 +53,75 @@
 }
 
 .navbar-link {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-muted);
     text-decoration: none;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
     transition: color var(--transition-fast);
 }
-.navbar-link:hover,
-.navbar-link.active { color: var(--white); }
+.navbar-link:hover { color: var(--primary); }
+.navbar-link.active { color: var(--primary-light); }
 
 /* =====================================================
    Hero Section
    ===================================================== */
 .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--bg);
     padding: calc(var(--space-20) + 64px) 0 var(--space-16);
-    color: var(--white);
+    color: var(--text-heading);
     text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(212, 168, 71, 0.06) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
 }
 
 .hero-image {
     width: 150px;
     height: 150px;
     border-radius: var(--rounded-full);
-    border: 4px solid var(--white);
+    border: 3px solid var(--primary);
     object-fit: cover;
     margin: 0 auto var(--space-6);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 0 30px rgba(212, 168, 71, 0.15);
 }
 
 .hero-image-placeholder {
     width: 150px;
     height: 150px;
     border-radius: var(--rounded-full);
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--bg-surface);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--space-6);
     font-size: var(--text-5xl);
     font-weight: var(--font-bold);
-    border: 4px solid var(--white);
+    border: 3px solid var(--primary);
+    color: var(--primary);
 }
 
 .hero-name {
     font-size: var(--text-4xl);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-3);
-    color: var(--white);
+    color: var(--text-heading);
 }
 
 .hero-title {
     font-size: var(--text-xl);
-    opacity: 0.9;
+    color: var(--primary);
     margin-bottom: var(--space-6);
 }
 
@@ -130,22 +142,24 @@
 }
 
 .hero-btn-primary {
-    background: var(--white);
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--text-on-primary);
 }
 .hero-btn-primary:hover {
-    background: var(--gray-100);
-    color: var(--primary);
+    background: var(--primary-dark);
+    color: var(--text-on-primary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(212, 168, 71, 0.3);
 }
 
 /* =====================================================
    Stats Section
    ===================================================== */
 .stats-section {
-    background: var(--white);
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     padding: var(--space-12) 0;
-    margin-top: -40px;
     position: relative;
     z-index: 1;
 }
@@ -174,7 +188,7 @@
 
 .stat-label {
     font-size: var(--text-sm);
-    color: var(--gray-500);
+    color: var(--text-muted);
 }
 
 /* =====================================================
@@ -182,7 +196,7 @@
    ===================================================== */
 .summary-section {
     padding: var(--space-12) 0;
-    background: var(--gray-50);
+    background: var(--bg);
 }
 
 .summary-content {
@@ -194,7 +208,7 @@
 .section-title {
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
-    color: var(--gray-900);
+    color: var(--text-heading);
     margin-bottom: var(--space-6);
     position: relative;
     display: inline-block;
@@ -215,7 +229,7 @@
 .summary-text {
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
-    color: var(--gray-700);
+    color: var(--text-muted);
     white-space: pre-line;
 }
 
@@ -224,7 +238,7 @@
    ===================================================== */
 .contact-section {
     padding: var(--space-12) 0;
-    background: var(--white);
+    background: var(--bg-surface);
 }
 
 .contact-grid {
@@ -248,24 +262,26 @@
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-4);
-    background: var(--gray-50);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
     border-radius: var(--rounded-lg);
     text-decoration: none;
-    color: var(--gray-700);
+    color: var(--text);
     transition: all var(--transition-fast);
 }
 
 .contact-item:hover {
-    background: var(--primary);
-    color: var(--white);
+    border-color: var(--primary);
+    background: var(--primary-subtle);
+    color: var(--primary-light);
     transform: translateY(-2px);
 }
 
 .contact-icon {
     width: 40px;
     height: 40px;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--primary-subtle);
+    color: var(--primary);
     border-radius: var(--rounded-md);
     display: flex;
     align-items: center;
@@ -274,8 +290,8 @@
 }
 
 .contact-item:hover .contact-icon {
-    background: var(--white);
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--text-on-primary);
 }
 
 .contact-info {
@@ -285,12 +301,12 @@
 
 .contact-label {
     font-size: var(--text-xs);
-    color: var(--gray-500);
+    color: var(--text-faint);
     margin-bottom: var(--space-1);
 }
 
 .contact-item:hover .contact-label {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
 }
 
 .contact-value {
@@ -305,15 +321,15 @@
    Footer
    ===================================================== */
 .footer {
-    background: var(--primary);
-    color: var(--white);
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
     padding: var(--space-6) 0;
     text-align: center;
 }
 
 .footer-text {
     font-size: var(--text-sm);
-    opacity: 0.9;
 }
 
 /* =====================================================
@@ -343,7 +359,6 @@
     }
 
     .stats-section {
-        margin-top: -20px;
         padding: var(--space-8) 0;
     }
     .stats-row { gap: var(--space-6); }

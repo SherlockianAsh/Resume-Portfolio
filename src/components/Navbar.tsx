@@ -7,7 +7,7 @@ export default function Navbar({ name }: { name: string }) {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="navbar-brand">
-          <div className="navbar-brand-icon">R</div>
+          <div className="navbar-brand-icon">A</div>
           <span className="hide-mobile">{name}</span>
         </Link>
         <div className="navbar-nav">

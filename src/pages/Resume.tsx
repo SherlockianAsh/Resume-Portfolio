@@ -1,6 +1,6 @@
 import { Link, useOutletContext } from "react-router-dom";
 import type { ResumeData } from "../types/resume";
-import { formatDateRange, formatMonth, parseDescription } from "../utils";
+import { formatDateRange, formatMonth, parseDescription, interpolateYears } from "../utils";
 import DynamicSection from "../components/DynamicSection";
 
 /** Keys that have dedicated rendering in the resume view */
@@ -70,7 +70,7 @@ export default function Resume() {
             <section className="resume-section">
               <h2 className="resume-section-title">Professional Summary</h2>
               <p className="resume-entry-description" style={{ whiteSpace: "pre-line" }}>
-                {profile.summary}
+                {interpolateYears(profile.summary)}
               </p>
             </section>
           )}

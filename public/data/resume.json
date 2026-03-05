@@ -7,7 +7,7 @@
     "location": "Shah Alam, Selangor, Malaysia",
     "linkedinUrl": "https://www.linkedin.com/in/muhammadasyrof-mohd-nasir-44a54a105",
     "githubUrl": "https://github.com/SherlockianAsh",
-    "summary": ".NET Consultant with 9+ years of experience in full-stack development across enterprise systems, government platforms, and IoT integration. Currently building ticketing, event registration, and visitor management systems for corporate clients. Core expertise in C#/.NET, React, Next.js, and PostgreSQL with Clean Architecture. Experienced in client-facing consultation, solution design, and mentoring junior engineers. Bachelor's degree in Computer Science (System & Networking) from Universiti Tenaga Nasional, Second Class Upper honors.",
+    "summary": ".NET Consultant with {{years}}+ years of experience in full-stack development across enterprise systems, government platforms, and IoT integration. Currently building ticketing, event registration, and visitor management systems for corporate clients. Core expertise in C#/.NET, React, Next.js, and PostgreSQL with Clean Architecture. Experienced in client-facing consultation, solution design, and mentoring junior engineers. Bachelor's degree in Computer Science (System & Networking) from Universiti Tenaga Nasional, Second Class Upper honors.",
     "profileImage": "images/profile.png"
   },
   "experiences": [

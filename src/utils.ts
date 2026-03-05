@@ -184,3 +184,12 @@ export function findDateRange(record: Record<string, unknown>): { start: string;
   }
   return null;
 }
+
+const CAREER_START = "2016-08";
+
+/** Replace {{years}} placeholder with dynamic years since career start */
+export function interpolateYears(text: string): string {
+  const start = new Date(CAREER_START + "-01");
+  const years = Math.floor((Date.now() - start.getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+  return text.replace("{{years}}", String(years));
+}

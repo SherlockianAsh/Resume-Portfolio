@@ -15,7 +15,7 @@ interface StatItem {
  */
 export function computeStats(data: ResumeData): StatItem[] {
   const labelMap: Record<string, string> = {
-    experiences: "Work Experience",
+    experiences: "Years Experience",
     education: "Education",
     skills: "Skills",
     certifications: "Certifications",
@@ -28,13 +28,30 @@ export function computeStats(data: ResumeData): StatItem[] {
   const stats: StatItem[] = [];
 
   for (const [key, value] of Object.entries(data)) {
-    if (key === "profile") continue; // profile is not a countable section
+    if (key === "profile") continue;
     if (!Array.isArray(value) || value.length === 0) continue;
+
+    let count: number;
+    if (key === "experiences") {
+      // Calculate years from earliest non-internship startDate to now
+      const fullTimeStart = "2016-08";
+      const dates = (value as { startDate?: string }[])
+        .map((e) => e.startDate)
+        .filter((d): d is string => !!d && d >= fullTimeStart);
+      if (dates.length > 0) {
+        const earliest = new Date(dates.sort()[0] + "-01");
+        count = Math.floor((Date.now() - earliest.getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+      } else {
+        count = value.length;
+      }
+    } else {
+      count = value.length;
+    }
 
     stats.push({
       key,
       label: labelMap[key] || humanizeKey(key),
-      count: value.length,
+      count,
       suffix: plusKeys.has(key) ? "+" : "",
     });
   }

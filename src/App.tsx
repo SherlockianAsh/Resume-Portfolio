@@ -4,7 +4,6 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import PublicLayout from "./components/PublicLayout";
 import Landing from "./pages/Landing";
 import Resume from "./pages/Resume";
-import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Card from "./pages/Card";
 import Showcase from "./pages/Showcase";
@@ -31,7 +30,6 @@ export default function App() {
             <Route path="/projects" element={<Showcase />} />
             <Route path="/analytics" element={<Analytics />} />
           </Route>
-          <Route path="/login" element={<Login />} />
           <Route
             path="/admin"
             element={

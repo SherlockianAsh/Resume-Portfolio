@@ -75,7 +75,7 @@ export default function Hero({ profile, stats }: HeroProps) {
     clearTimeout(clickTimer.current);
     if (clickCount.current >= 5) {
       clickCount.current = 0;
-      navigate("/login");
+      navigate("/admin");
       return;
     }
     clickTimer.current = setTimeout(() => { clickCount.current = 0; }, 1500);

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import type { Profile, ResumeData } from "../types/resume";
 import { humanizeKey } from "../utils";
 
@@ -65,6 +66,21 @@ interface HeroProps {
 }
 
 export default function Hero({ profile, stats }: HeroProps) {
+  const navigate = useNavigate();
+  const clickCount = useRef(0);
+  const clickTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  const handleImageClick = () => {
+    clickCount.current++;
+    clearTimeout(clickTimer.current);
+    if (clickCount.current >= 5) {
+      clickCount.current = 0;
+      navigate("/login");
+      return;
+    }
+    clickTimer.current = setTimeout(() => { clickCount.current = 0; }, 1500);
+  };
+
   // Split stats into rows: first 2 items, then remaining (max 3-4 per row)
   const row1 = stats.slice(0, 2);
   const row2 = stats.slice(2, 5);
@@ -80,9 +96,15 @@ export default function Hero({ profile, stats }: HeroProps) {
                 src={`${import.meta.env.BASE_URL}${profile.profileImage}`}
                 alt={profile.fullName}
                 className="hero-image"
+                onClick={handleImageClick}
+                style={{ cursor: "default" }}
               />
             ) : (
-              <div className="hero-image-placeholder">
+              <div
+                className="hero-image-placeholder"
+                onClick={handleImageClick}
+                style={{ cursor: "default" }}
+              >
                 {profile.fullName.charAt(0).toUpperCase()}
               </div>
             )}

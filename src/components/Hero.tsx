@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import type { Profile, ResumeData } from "../types/resume";
 import { humanizeKey } from "../utils";
+import { useAuth } from "../auth/AuthContext";
 
 interface StatItem {
   key: string;
@@ -67,18 +68,36 @@ interface HeroProps {
 
 export default function Hero({ profile, stats }: HeroProps) {
   const navigate = useNavigate();
+  const { user, isAdmin, login } = useAuth();
   const clickCount = useRef(0);
   const clickTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const [showLogin, setShowLogin] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
 
   const handleImageClick = () => {
     clickCount.current++;
     clearTimeout(clickTimer.current);
     if (clickCount.current >= 5) {
       clickCount.current = 0;
-      navigate("/admin");
+      if (user && isAdmin) {
+        navigate("/admin");
+      } else {
+        setShowLogin(true);
+      }
       return;
     }
     clickTimer.current = setTimeout(() => { clickCount.current = 0; }, 1500);
+  };
+
+  const handleLogin = async () => {
+    setLoginError(null);
+    try {
+      await login();
+      setShowLogin(false);
+      navigate("/admin");
+    } catch {
+      setLoginError("Sign-in failed. Please try again.");
+    }
   };
 
   // Split stats into rows: first 2 items, then remaining (max 3-4 per row)
@@ -153,6 +172,25 @@ export default function Hero({ profile, stats }: HeroProps) {
           )}
         </div>
       </section>
+
+      {showLogin && (
+        <div className="modal-overlay" onClick={() => setShowLogin(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowLogin(false)}>&times;</button>
+            <div className="modal-header">
+              <div className="modal-logo">
+                {profile.fullName.charAt(0).toUpperCase()}
+              </div>
+              <h2 className="modal-title">Admin Login</h2>
+              <p className="modal-subtitle">Sign in to manage your resume</p>
+            </div>
+            {loginError && <p className="admin-error">{loginError}</p>}
+            <button className="admin-btn admin-btn-google" onClick={handleLogin} style={{ width: "100%" }}>
+              Sign in with Google
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

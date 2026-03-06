@@ -53,12 +53,12 @@ export default function AdminLayout({
 
       {!pat && (
         <div className="admin-pat-banner">
-          <label className="admin-label">GitHub Personal Access Token</label>
+          <label className="admin-label">JSONBin Master Key</label>
           <div className="admin-pat-input-row">
             <input
               type="password"
               className="admin-input"
-              placeholder="ghp_... (needs repo or Contents read/write scope)"
+              placeholder="$2a$10$... (from jsonbin.io/app/settings/api-keys)"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   onPatChange((e.target as HTMLInputElement).value);
@@ -78,7 +78,7 @@ export default function AdminLayout({
             </button>
           </div>
           <p className="admin-pat-hint">
-            PAT is stored in sessionStorage only — cleared when you close the tab.
+            Key is stored in sessionStorage only — cleared when you close the tab.
           </p>
         </div>
       )}

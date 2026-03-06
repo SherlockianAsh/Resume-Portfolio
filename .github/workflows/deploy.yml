@@ -30,6 +30,7 @@ jobs:
           VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
           VITE_ADMIN_EMAIL: ${{ secrets.VITE_ADMIN_EMAIL }}
+          VITE_JSONBIN_BIN_ID: ${{ secrets.VITE_JSONBIN_BIN_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

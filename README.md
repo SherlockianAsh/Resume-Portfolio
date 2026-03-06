@@ -11,19 +11,19 @@ A personal resume portfolio with an admin panel for editing resume data through 
 | **Routing** | React Router 7 (SPA) |
 | **Styling** | CSS custom properties (Cobalt Blue theme) |
 | **Auth** | Firebase Auth (Google sign-in) |
-| **Persistence** | GitHub Contents API (commits `resume.json` directly to repo) |
+| **Persistence** | JSONBin.io (public bin for read, Master Key for admin writes) |
 | **Hosting** | GitHub Pages (GitHub Actions deploy) |
 | **Domain** | ashlock-tech.my |
 
 ### Why No Database?
 
-Resume data lives in `public/data/resume.json`. The admin panel reads/writes this file via the GitHub Contents API — each save is a git commit. GitHub Pages auto-rebuilds on push. Zero infrastructure cost.
+Resume data lives on [JSONBin.io](https://jsonbin.io) — a cloud JSON storage API. The public site fetches data at runtime (no build needed for data changes). The admin panel writes directly to the bin via the JSONBin API. Zero infrastructure cost, no resume data in the repo.
 
 ### API & Service Costs
 
 | Service | Cost | Limits |
 |---------|------|--------|
-| **GitHub API** | Free | 5,000 authenticated requests/hour |
+| **JSONBin.io** | Free | 10,000 requests/month |
 | **GitHub Pages** | Free (public repo) | 100 GB bandwidth/month |
 | **Firebase Auth** | Free (Spark plan) | 10,000 monthly active users |
 
@@ -47,15 +47,15 @@ src/
 │   ├── PublicLayout.tsx      # Public route wrapper (Navbar + Outlet + Footer)
 │   └── ...                   # Landing components (Hero, Contact, Skills, etc.)
 ├── hooks/
-│   ├── useResume.ts          # Fetch resume.json for public pages
-│   └── useGitHubPat.ts       # sessionStorage PAT management
+│   ├── useResume.ts          # Fetch resume from JSONBin for public pages
+│   └── useGitHubPat.ts       # sessionStorage key management
 ├── pages/
 │   ├── Landing.tsx           # Home page
 │   ├── Resume.tsx            # ATS resume view
 │   ├── Login.tsx             # Google sign-in
 │   └── Admin.tsx             # Tabbed admin panel
 ├── services/
-│   └── github.ts             # GitHub Contents API (fetch + commit)
+│   └── github.ts             # JSONBin API (read + update)
 ├── styles/                   # CSS (base, landing, resume, admin, print)
 └── types/
     └── resume.ts             # TypeScript interfaces
@@ -77,15 +77,15 @@ VITE_FIREBASE_AUTH_DOMAIN=
 VITE_FIREBASE_PROJECT_ID=
 VITE_FIREBASE_APP_ID=
 VITE_ADMIN_EMAIL=             # Google account email for admin access
+VITE_JSONBIN_BIN_ID=          # JSONBin bin ID (from jsonbin.io dashboard)
 ```
 
-### GitHub PAT
+### JSONBin Master Key
 
-Create a fine-grained Personal Access Token:
-1. GitHub → Settings → Developer Settings → Fine-grained tokens
-2. Repository access: **Only select repositories** → `Resume-Portfolio`
-3. Permissions: **Contents** → Read and Write
-4. The PAT is entered per-session in the admin panel (stored in `sessionStorage` only)
+For admin panel writes:
+1. Go to [jsonbin.io/app/settings/api-keys](https://jsonbin.io/app/settings/api-keys)
+2. Copy your **Master Key** (starts with `$2a$10$...`)
+3. The key is entered per-session in the admin panel (stored in `sessionStorage` only)
 
 ## Development
 

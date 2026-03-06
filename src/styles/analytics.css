@@ -1,0 +1,229 @@
+/**
+ * Resume Portfolio - Analytics Dashboard Styles
+ * Theme: Baker Street Dark — Amber Gold on Charcoal
+ */
+
+/* =====================================================
+   Analytics Page
+   ===================================================== */
+.analytics-section {
+    padding: calc(var(--space-16) + 64px) 0 var(--space-16);
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+.analytics-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.analytics-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    margin-top: var(--space-4);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =====================================================
+   GitHub Stats Section
+   ===================================================== */
+.github-section {
+    margin-bottom: var(--space-12);
+}
+
+.github-section-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-heading);
+    margin-bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.github-section-icon {
+    color: var(--primary);
+}
+
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.github-stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rounded-lg);
+    padding: var(--space-5);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.github-stat-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.github-stat-value {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--primary);
+    margin-bottom: var(--space-1);
+}
+
+.github-stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+/* =====================================================
+   Top Repos
+   ===================================================== */
+.top-repos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+}
+
+.repo-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rounded-lg);
+    padding: var(--space-5);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+.repo-card:hover,
+.repo-card:focus-visible {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    color: var(--text);
+    outline: none;
+}
+
+.repo-name {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--primary-light);
+    margin-bottom: var(--space-2);
+}
+
+.repo-desc {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.repo-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+}
+
+.repo-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.repo-lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--rounded-full);
+    display: inline-block;
+}
+
+/* =====================================================
+   Site Analytics Section (GoatCounter)
+   ===================================================== */
+.site-analytics-section {
+    margin-top: var(--space-12);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--border);
+}
+
+.goatcounter-placeholder {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rounded-lg);
+    padding: var(--space-8);
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.goatcounter-placeholder p {
+    margin-bottom: var(--space-3);
+}
+
+.goatcounter-placeholder a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.goatcounter-placeholder a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+.analytics-loading {
+    text-align: center;
+    padding: var(--space-12);
+    color: var(--text-muted);
+}
+
+.analytics-error {
+    text-align: center;
+    padding: var(--space-8);
+    color: var(--text-muted);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--rounded-lg);
+}
+
+/* =====================================================
+   Mobile Responsive
+   ===================================================== */
+@media (max-width: 768px) {
+    .analytics-section {
+        padding: calc(var(--space-12) + 64px) 0 var(--space-12);
+    }
+
+    .github-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .top-repos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .analytics-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .github-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+
+    .github-stat-value {
+        font-size: var(--text-2xl);
+    }
+}

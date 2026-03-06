@@ -56,6 +56,7 @@ export interface Project {
   projectUrl: string | null;
   startDate: string;
   endDate: string | null;
+  featured?: boolean;
   [key: string]: unknown;
 }
 

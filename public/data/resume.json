@@ -326,7 +326,8 @@
       "technologiesUsed": "ASP.NET Core 9, Nuxt 3, PostgreSQL, Clean Architecture, Docker",
       "projectUrl": "https://github.com/SherlockianAsh",
       "startDate": "2024-01",
-      "endDate": null
+      "endDate": null,
+      "featured": true
     },
     {
       "projectName": "iDex Ticketing System",
@@ -334,7 +335,8 @@
       "technologiesUsed": "ASP.NET Core 9, React, PostgreSQL, SignalR, Clean Architecture",
       "projectUrl": "https://github.com/SherlockianAsh",
       "startDate": "2024-06",
-      "endDate": null
+      "endDate": null,
+      "featured": true
     },
     {
       "projectName": "Event Registration System (ERS)",
@@ -342,7 +344,8 @@
       "technologiesUsed": "ASP.NET Core, Next.js, WPF, PostgreSQL, Docker",
       "projectUrl": "https://github.com/SherlockianAsh",
       "startDate": "2024-09",
-      "endDate": null
+      "endDate": null,
+      "featured": true
     },
     {
       "projectName": "bSwift - Visitor Management System",
@@ -350,7 +353,8 @@
       "technologiesUsed": ".NET Core 8, JavaScript, React Native, SignalR, HikVision ISAPI",
       "projectUrl": null,
       "startDate": "2025-07",
-      "endDate": null
+      "endDate": null,
+      "featured": true
     },
     {
       "projectName": "POS System (CMG)",
@@ -366,7 +370,8 @@
       "technologiesUsed": "ASP.NET, C#, AWS (WAF, S3, DynamoDB), NoSQL, PartiQL",
       "projectUrl": null,
       "startDate": "2021-12",
-      "endDate": "2023-08"
+      "endDate": "2023-08",
+      "featured": true
     },
     {
       "projectName": "Stock Management & Stocktaking System",

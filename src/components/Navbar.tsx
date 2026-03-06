@@ -61,6 +61,20 @@ export default function Navbar({ name }: { name: string }) {
           >
             Card
           </Link>
+          <Link
+            to="/projects"
+            className={`navbar-link${location.pathname === "/projects" ? " active" : ""}`}
+            onClick={closeMenu}
+          >
+            Projects
+          </Link>
+          <Link
+            to="/analytics"
+            className={`navbar-link${location.pathname === "/analytics" ? " active" : ""}`}
+            onClick={closeMenu}
+          >
+            Analytics
+          </Link>
           <a href="/#contact" className="navbar-link" onClick={closeMenu}>
             Contact
           </a>

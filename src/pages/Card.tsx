@@ -1,25 +1,9 @@
 import { useEffect } from "react";
-import { useResume } from "../hooks/useResume";
+import { useOutletContext } from "react-router-dom";
+import type { ResumeData } from "../types/resume";
 
 export default function Card() {
-  const { data, loading, error } = useResume();
-
-  if (loading) {
-    return (
-      <div className="card-page">
-        <div className="card-loading">Loading...</div>
-      </div>
-    );
-  }
-
-  if (error || !data) {
-    return (
-      <div className="card-page">
-        <div className="card-loading">Failed to load.</div>
-      </div>
-    );
-  }
-
+  const data = useOutletContext<ResumeData>();
   const { profile } = data;
   const cardUrl = `${window.location.origin}/card`;
 

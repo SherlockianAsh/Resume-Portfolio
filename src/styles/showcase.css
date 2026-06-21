@@ -201,7 +201,7 @@
 .case-mini-status.is-closed { color: #8a7f66; }
 
 /* Titles */
-.case-title {
+.casebook-section .case-title {
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 28px;
@@ -212,7 +212,7 @@
     z-index: 1;
 }
 
-.case-title--sm {
+.casebook-section .case-title--sm {
     font-size: 20px;
     margin-bottom: 6px;
 }
@@ -478,14 +478,14 @@
     }
     .case-grid--compact { grid-template-columns: 1fr; }
     .case-card { padding: 24px; }
-    .case-title { font-size: 24px; }
+    .casebook-section .case-title { font-size: 24px; }
 }
 
 @media (max-width: 480px) {
     .casebook-title { font-size: 34px; }
     .casebook-subtitle { font-size: 15px; }
     .case-card { padding: 20px; }
-    .case-title { font-size: 22px; }
+    .casebook-section .case-title { font-size: 22px; }
     .case-brief { font-size: 14px; }
 }
 
@@ -579,7 +579,7 @@
 
 /* Ink colours on parchment */
 .case-num { color: #6f6244; }
-.case-title { color: #2c2418; }
+.casebook-section .case-title { color: #2c2418; }
 .case-logline { color: #6b5c3f; }
 .case-logline-span { color: #8a7a55; }
 .case-brief { color: #4c4231; }

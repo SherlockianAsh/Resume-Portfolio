@@ -13,6 +13,9 @@ dist-ssr
 *.local
 .env
 
+# Design references (not part of the deliverable)
+ref/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

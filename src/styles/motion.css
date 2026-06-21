@@ -67,8 +67,8 @@
     font-size: var(--text-sm);
     line-height: 1.4;
     color: var(--primary-light, #F0C75E);
-    background: var(--primary-subtle, rgba(212, 168, 71, 0.1));
-    border: 1px solid rgba(212, 168, 71, 0.25);
+    background: var(--primary-subtle, rgba(201, 164, 76, 0.1));
+    border: 1px solid rgba(201, 164, 76, 0.25);
     border-radius: var(--rounded-full, 9999px);
 }
 
@@ -89,16 +89,8 @@
     width: 100%;
     height: 100%;
 }
-/* Reveal the fixed canvas: body transparent, html holds the base colour.
-   A z-index:-1 background only shows through transparent ancestors. */
-html {
-    background-color: var(--bg);
-}
-body {
-    background-color: transparent;
-}
-/* Let the matrix glow behind the hero (its opaque bg would hide the canvas).
-   Content sections keep their solid backgrounds for text readability. */
+/* Hero stays transparent so the gaslight gradient atmosphere (base.css body)
+   shows behind it. (Matrix canvas retired for the Marlowe-Vane theme.) */
 .hero {
     background: transparent !important;
 }
@@ -114,8 +106,8 @@ body {
     transform: translateX(-50%);
     background: radial-gradient(
         ellipse at center,
-        rgba(212, 168, 71, 0.10) 0%,
-        rgba(212, 168, 71, 0) 70%
+        rgba(201, 164, 76, 0.10) 0%,
+        rgba(201, 164, 76, 0) 70%
     );
     pointer-events: none;
 }

@@ -8,29 +8,29 @@
    CSS Variables (Theme Configuration)
    ===================================================== */
 :root {
-    /* Background - London Fog */
-    --bg: #0D1117;
-    --bg-surface: #161B22;
-    --bg-elevated: #1C2333;
-    --bg-input: #0D1117;
+    /* Background - Gaslight Noir (Marlowe-Vane) */
+    --bg: #14110b;
+    --bg-surface: #1c1810;
+    --bg-elevated: #251f15;
+    --bg-input: #14110b;
 
-    /* Borders */
-    --border: #30363D;
-    --border-light: #21262D;
+    /* Borders - warm brass hairlines */
+    --border: #3a3122;
+    --border-light: #2a2418;
 
-    /* Primary - Amber Gold (Gaslight) */
-    --primary: #D4A847;
-    --primary-dark: #B8922E;
-    --primary-light: #F0C75E;
-    --primary-hover: #E0B84D;
-    --primary-subtle: rgba(212, 168, 71, 0.1);
+    /* Primary - Brass Gold */
+    --primary: #c9a44c;
+    --primary-dark: #a5842f;
+    --primary-light: #dcc488;
+    --primary-hover: #d8b558;
+    --primary-subtle: rgba(201, 164, 76, 0.1);
 
-    /* Text - Warm Cream (Aged Paper) */
-    --text: #E6E1D8;
-    --text-heading: #F0EDE8;
-    --text-muted: #8B949E;
-    --text-faint: #6E7681;
-    --text-on-primary: #0D1117;
+    /* Text - Aged Parchment */
+    --text: #e9e3d4;
+    --text-heading: #f4efe2;
+    --text-muted: #9a8f76;
+    --text-faint: #6f6750;
+    --text-on-primary: #14110b;
 
     /* Legacy aliases (used in components) */
     --white: #FFFFFF;
@@ -56,9 +56,10 @@
     --info: #58A6FF;
     --info-light: rgba(88, 166, 255, 0.15);
 
-    /* Typography */
-    --font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-family-mono: 'Consolas', 'Monaco', monospace;
+    /* Typography - editorial serif (Marlowe-Vane) */
+    --font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-family-mono: 'JetBrains Mono', 'Consolas', monospace;
 
     /* Font Sizes */
     --text-xs: 0.75rem;
@@ -151,8 +152,13 @@ body {
     line-height: var(--leading-normal);
     color: var(--text);
     background-color: var(--bg);
+    background-image:
+        radial-gradient(1200px 700px at 78% -8%, rgba(201, 164, 76, 0.10), transparent 60%),
+        radial-gradient(900px 600px at -10% 110%, rgba(120, 90, 50, 0.10), transparent 60%);
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     min-height: 100vh;
 }
 
@@ -188,8 +194,10 @@ table {
    Typography
    ===================================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: var(--font-bold);
+    font-family: var(--font-display);
+    font-weight: var(--font-semibold);
     line-height: var(--leading-tight);
+    letter-spacing: 0.01em;
     color: var(--text-heading);
     margin-bottom: var(--space-4);
 }

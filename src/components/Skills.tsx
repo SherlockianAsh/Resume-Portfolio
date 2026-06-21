@@ -33,7 +33,7 @@ export default function Skills({ items }: { items: Skill[] }) {
             <div className="skill-category" key={category}>
               <h3 className="skill-category-title">{category}</h3>
               {skills.map((skill, i) => (
-                <div className="skill-item" key={i}>
+                <div className="skill-item" data-reveal-item key={i}>
                   <span className="skill-name">{skill.skillName}</span>
                   <span className={`proficiency-badge ${proficiencyClass(skill.proficiencyLevel)}`}>
                     {skill.proficiencyLevel}

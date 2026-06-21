@@ -1,0 +1,157 @@
+/**
+ * Motion layer styles — tech-savvy revamp.
+ *
+ * Pairs with src/lib/motion.ts + <Reveal> + <Typewriter>.
+ * Holds: initial hidden states, the terminal cursor, the animated code
+ * background, and the single accessibility/print KILL-SWITCH at the bottom.
+ */
+
+/* =====================================================
+   Scroll-reveal initial states
+   <Reveal> sets [data-reveal]; staggered children carry [data-reveal-item].
+   Hidden by default; anime.js animates opacity/translateY in on view.
+   ===================================================== */
+[data-reveal],
+[data-reveal-item] {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+/* =====================================================
+   Terminal cursor (Typewriter)
+   ===================================================== */
+.tw-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: var(--primary-light, #F0C75E);
+    font-weight: var(--font-normal);
+    animation: tw-blink 1.05s steps(2, start) infinite;
+}
+/* When typing finishes we keep a gentle blink; if you prefer it to vanish,
+   set display:none on [data-done="true"]. */
+.tw-cursor[data-done="true"] {
+    animation: tw-blink 1.4s steps(2, start) infinite;
+    opacity: 0.7;
+}
+@keyframes tw-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* =====================================================
+   Terminal-prompt section titles
+   Landing section headers (.section-title) get a gold "> " prompt prefix.
+   Opt-in elsewhere with the "term-title" class.
+   ===================================================== */
+.term-title::before,
+.section-title::before {
+    content: "> ";
+    color: var(--primary, #D4A847);
+    font-family: var(--font-family-mono, monospace);
+    font-weight: var(--font-bold);
+}
+
+/* =====================================================
+   Resume skill chips (tech tags) — replaces the comma-joined string
+   ===================================================== */
+.resume-skills-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+.resume-skill-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-family-mono, monospace);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    color: var(--primary-light, #F0C75E);
+    background: var(--primary-subtle, rgba(212, 168, 71, 0.1));
+    border: 1px solid rgba(212, 168, 71, 0.25);
+    border-radius: var(--rounded-full, 9999px);
+}
+
+/* =====================================================
+   Animated code background (CodeBackground.tsx)
+   A fixed, GPU-cheap dot-matrix grid that drifts behind the hero.
+   ===================================================== */
+.code-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background-color: var(--bg, #0D1117);
+}
+.code-bg canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/* Reveal the fixed canvas: body transparent, html holds the base colour.
+   A z-index:-1 background only shows through transparent ancestors. */
+html {
+    background-color: var(--bg);
+}
+body {
+    background-color: transparent;
+}
+/* Let the matrix glow behind the hero (its opaque bg would hide the canvas).
+   Content sections keep their solid backgrounds for text readability. */
+.hero {
+    background: transparent !important;
+}
+
+/* Subtle gold radial glow anchored top-centre, behind the hero. */
+.code-bg::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 70vw;
+    height: 60vh;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(212, 168, 71, 0.10) 0%,
+        rgba(212, 168, 71, 0) 70%
+    );
+    pointer-events: none;
+}
+
+/* =====================================================
+   Entrance helpers
+   Mark any element with [data-anim] to declare "JS animates this in".
+   It starts hidden (no flash) and a timeline reveals it on mount.
+   ===================================================== */
+[data-anim] {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+/* =====================================================
+   ⚠️ KILL-SWITCH — print + reduced motion
+   Neutralises EVERY animation in one place. Guarantees the print/PDF path
+   (print.css) and accessibility users see fully-visible, static content.
+   ===================================================== */
+@media print, (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    [data-reveal],
+    [data-reveal-item],
+    [data-anim] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .tw-cursor {
+        display: none !important;
+    }
+    .code-bg {
+        display: none !important;
+    }
+}

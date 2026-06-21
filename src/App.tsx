@@ -17,6 +17,7 @@ import "./styles/admin.css";
 import "./styles/card.css";
 import "./styles/showcase.css";
 import "./styles/analytics.css";
+import "./styles/motion.css";
 
 export default function App() {
   return (

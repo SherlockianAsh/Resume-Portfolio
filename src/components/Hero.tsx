@@ -1,8 +1,23 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { createScope, createTimeline } from "animejs";
 import type { Profile, ResumeData } from "../types/resume";
 import { humanizeKey } from "../utils";
 import { useAuth } from "../auth/AuthContext";
+import { useCountUp } from "../hooks/useCountUp";
+import Typewriter from "./Typewriter";
+import { prefersReducedMotion } from "../lib/motion";
+
+/** Single stat cell — count-up animates 0 → count when scrolled into view. */
+function StatNumber({ count, suffix }: { count: number; suffix: string }) {
+  const { ref, value } = useCountUp(count);
+  return (
+    <div ref={ref} className="stat-number">
+      {value}
+      {suffix}
+    </div>
+  );
+}
 
 interface StatItem {
   key: string;
@@ -73,6 +88,23 @@ export default function Hero({ profile, stats }: HeroProps) {
   const clickTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const [showLogin, setShowLogin] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Choreographed entrance: image glows in, then name, then CTA.
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    const scope = createScope({ root: heroRef }).add(() => {
+      const tl = createTimeline({ defaults: { ease: "out(3)" } });
+      tl.add(".hero-image, .hero-image-placeholder", {
+        opacity: [0, 1],
+        scale: [0.82, 1],
+        duration: 720,
+      })
+        .add(".hero-name", { opacity: [0, 1], translateY: [22, 0], duration: 520 }, "-=420")
+        .add(".hero-buttons", { opacity: [0, 1], translateY: [16, 0], duration: 420 }, "-=240");
+    });
+    return () => scope.revert();
+  }, []);
 
   const handleImageClick = () => {
     clickCount.current++;
@@ -107,7 +139,7 @@ export default function Hero({ profile, stats }: HeroProps) {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero" ref={heroRef}>
         <div className="container">
           <div className="hero-content">
             {profile.profileImage ? (
@@ -115,21 +147,27 @@ export default function Hero({ profile, stats }: HeroProps) {
                 src={`${import.meta.env.BASE_URL}${profile.profileImage}`}
                 alt={profile.fullName}
                 className="hero-image"
+                data-anim
                 onClick={handleImageClick}
                 style={{ cursor: "default" }}
               />
             ) : (
               <div
                 className="hero-image-placeholder"
+                data-anim
                 onClick={handleImageClick}
                 style={{ cursor: "default" }}
               >
                 {profile.fullName.charAt(0).toUpperCase()}
               </div>
             )}
-            <h1 className="hero-name">{profile.fullName}</h1>
-            <p className="hero-title">{profile.title}</p>
-            <div className="hero-buttons">
+            <h1 className="hero-name" data-anim>{profile.fullName}</h1>
+            {profile.title && (
+              <p className="hero-title">
+                <Typewriter text={profile.title} />
+              </p>
+            )}
+            <div className="hero-buttons" data-anim>
               <Link to="/resume" className="hero-btn hero-btn-primary">
                 View Resume
               </Link>
@@ -144,7 +182,7 @@ export default function Hero({ profile, stats }: HeroProps) {
             <div className={`stats-row stats-row-${row1.length}`}>
               {row1.map((stat) => (
                 <div className="stat-item" key={stat.key}>
-                  <div className="stat-number">{stat.count}{stat.suffix}</div>
+                  <StatNumber count={stat.count} suffix={stat.suffix} />
                   <div className="stat-label">{stat.label}</div>
                 </div>
               ))}
@@ -154,7 +192,7 @@ export default function Hero({ profile, stats }: HeroProps) {
             <div className={`stats-row stats-row-${row2.length}`}>
               {row2.map((stat) => (
                 <div className="stat-item" key={stat.key}>
-                  <div className="stat-number">{stat.count}{stat.suffix}</div>
+                  <StatNumber count={stat.count} suffix={stat.suffix} />
                   <div className="stat-label">{stat.label}</div>
                 </div>
               ))}
@@ -164,7 +202,7 @@ export default function Hero({ profile, stats }: HeroProps) {
             <div className={`stats-row stats-row-${row3.length}`}>
               {row3.map((stat) => (
                 <div className="stat-item" key={stat.key}>
-                  <div className="stat-number">{stat.count}{stat.suffix}</div>
+                  <StatNumber count={stat.count} suffix={stat.suffix} />
                   <div className="stat-label">{stat.label}</div>
                 </div>
               ))}

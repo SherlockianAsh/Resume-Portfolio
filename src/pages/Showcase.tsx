@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import type { ResumeData, Project } from "../types/resume";
+import Reveal from "../components/Reveal";
 
 function formatDate(dateStr: string) {
   const [y, m] = dateStr.split("-");
@@ -16,7 +17,7 @@ function FeaturedCard({ project }: { project: Project }) {
   const isActive = !project.endDate;
 
   return (
-    <div className="featured-card">
+    <div className="featured-card" data-reveal-item>
       <div className="featured-accent" />
       <div className="featured-content">
         <span className="featured-badge">Featured</span>
@@ -52,7 +53,7 @@ function FeaturedCard({ project }: { project: Project }) {
 
 function CompactCard({ project }: { project: Project }) {
   return (
-    <div className="compact-card">
+    <div className="compact-card" data-reveal-item>
       <h4 className="compact-name">{project.projectName}</h4>
       <p className="compact-desc">{project.description}</p>
       <div className="compact-tags">
@@ -88,11 +89,11 @@ export default function Showcase() {
         </div>
 
         {featured.length > 0 && (
-          <div className="featured-grid">
+          <Reveal staggerSelector="[data-reveal-item]" className="featured-grid">
             {featured.map((project) => (
               <FeaturedCard key={project.projectName} project={project} />
             ))}
-          </div>
+          </Reveal>
         )}
 
         {others.length > 0 && (
@@ -100,11 +101,11 @@ export default function Showcase() {
             <div className="projects-divider">
               <h2 className="projects-divider-title">All Projects</h2>
             </div>
-            <div className="compact-grid">
+            <Reveal staggerSelector="[data-reveal-item]" className="compact-grid">
               {others.map((project) => (
                 <CompactCard key={project.projectName} project={project} />
               ))}
-            </div>
+            </Reveal>
           </>
         )}
       </div>

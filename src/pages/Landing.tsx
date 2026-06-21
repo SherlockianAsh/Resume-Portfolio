@@ -9,6 +9,7 @@ import Skills from "../components/Skills";
 import Certifications from "../components/Certifications";
 import Projects from "../components/Projects";
 import DynamicSection from "../components/DynamicSection";
+import Reveal from "../components/Reveal";
 
 /** Keys that have dedicated components — everything else is rendered dynamically */
 const HANDLED_KEYS = new Set<string>([
@@ -32,17 +33,35 @@ export default function Landing() {
   return (
     <>
       <Hero profile={data.profile} stats={stats} />
-      {data.profile.summary && <Summary text={data.profile.summary} />}
-      <Contact profile={data.profile} />
-      <Experience items={data.experiences} />
-      <Education items={data.education} />
-      <Skills items={data.skills} />
-      <Certifications items={data.certifications} />
-      <Projects items={data.projects} />
+      {data.profile.summary && (
+        <Reveal>
+          <Summary text={data.profile.summary} />
+        </Reveal>
+      )}
+      <Reveal>
+        <Contact profile={data.profile} />
+      </Reveal>
+      <Reveal>
+        <Experience items={data.experiences} />
+      </Reveal>
+      <Reveal>
+        <Education items={data.education} />
+      </Reveal>
+      <Reveal staggerSelector="[data-reveal-item]">
+        <Skills items={data.skills} />
+      </Reveal>
+      <Reveal>
+        <Certifications items={data.certifications} />
+      </Reveal>
+      <Reveal>
+        <Projects items={data.projects} />
+      </Reveal>
 
       {/* Dynamic sections — any new arrays added to resume.json render here */}
       {dynamicSections.map(({ key, items }) => (
-        <DynamicSection key={key} sectionKey={key} items={items} variant="landing" />
+        <Reveal key={key}>
+          <DynamicSection sectionKey={key} items={items} variant="landing" />
+        </Reveal>
       ))}
     </>
   );

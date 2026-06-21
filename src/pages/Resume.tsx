@@ -2,6 +2,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import type { ResumeData } from "../types/resume";
 import { formatDateRange, formatMonth, parseDescription, interpolateYears } from "../utils";
 import DynamicSection from "../components/DynamicSection";
+import Reveal from "../components/Reveal";
 
 /** Keys that have dedicated rendering in the resume view */
 const HANDLED_KEYS = new Set<string>([
@@ -127,9 +128,13 @@ export default function Resume() {
           {skills.length > 0 && (
             <section className="resume-section">
               <h2 className="resume-section-title">Skills</h2>
-              <div className="resume-skills-list">
-                {skills.map((s) => s.skillName).join(", ")}
-              </div>
+              <Reveal staggerSelector="[data-reveal-item]" className="resume-skills-chips">
+                {skills.map((s, i) => (
+                  <span className="resume-skill-chip" data-reveal-item key={i}>
+                    {s.skillName}
+                  </span>
+                ))}
+              </Reveal>
             </section>
           )}
 

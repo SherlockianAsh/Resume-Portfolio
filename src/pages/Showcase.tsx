@@ -33,20 +33,20 @@ function caseNumber(name: string): string {
   return String(1000 + (h % 8999));
 }
 
-function FeaturedCase({ project, index }: { project: Project; index: number }) {
+function FeaturedCase({ project }: { project: Project }) {
   const isActive = !project.endDate;
   const tags = parseTags(project.technologiesUsed);
   const visibleTags = tags.slice(0, 4);
   const hiddenTags = tags.slice(4);
-  const tilt = index % 2 === 0 ? "tilt-right" : "tilt-left";
 
   return (
     <article className="case-card case-card--featured" data-reveal-item data-loupe-target>
+      <span className="case-tab">No. {caseNumber(project.projectName)}</span>
       <header className="case-head">
-        <span className="case-num">CASE No. {caseNumber(project.projectName)}</span>
-        <span className={`case-stamp ${isActive ? "case-stamp--open" : "case-stamp--solved"} ${tilt}`}>
-          {isActive ? "ON THE BOARD" : "SOLVED"}
+        <span className={`case-badge ${isActive ? "case-badge--open" : "case-badge--solved"}`}>
+          {isActive ? "▣ ON THE BOARD" : "▣ SOLVED"}
         </span>
+        <span className="case-confidential">CONFIDENTIAL</span>
       </header>
 
       <h3 className="case-title">{project.projectName}</h3>
@@ -55,6 +55,8 @@ function FeaturedCase({ project, index }: { project: Project; index: number }) {
         <span className="case-logline-dot">&middot;</span>
         <span className="case-logline-span">{spanYears(project.startDate, project.endDate)}</span>
       </p>
+
+      <div className="case-divider" />
 
       <p className="case-brief">{project.description}</p>
 
@@ -175,8 +177,8 @@ export default function Showcase() {
               <span className="casebook-chapter-num">I.</span> The Notable Files
             </h2>
             <Reveal staggerSelector="[data-reveal-item]" className="case-grid case-grid--featured">
-              {featured.map((project, i) => (
-                <FeaturedCase key={project.projectName} project={project} index={i} />
+              {featured.map((project) => (
+                <FeaturedCase key={project.projectName} project={project} />
               ))}
             </Reveal>
           </>

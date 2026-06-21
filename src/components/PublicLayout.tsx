@@ -25,6 +25,7 @@ export default function PublicLayout() {
 
   return (
     <>
+      <div className="paper-grain" aria-hidden="true" />
       <Navbar name={data.profile.fullName} />
       <Outlet context={data satisfies ResumeData} />
       <Footer />

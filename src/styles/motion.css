@@ -92,6 +92,7 @@
    shows behind it. (Matrix canvas retired for the Marlowe-Vane theme.) */
 .hero {
     background: transparent !important;
+    position: relative; /* positioning context for the CONFIDENTIAL stamp */
 }
 
 /* Subtle gold radial glow anchored top-centre, behind the hero. */
@@ -122,6 +123,53 @@
 }
 
 /* =====================================================
+   Paper grain — film/parchment texture overlay (Marlowe-Vane)
+   A fixed, pointer-transparent SVG noise film over the whole page.
+   ===================================================== */
+.paper-grain {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+}
+
+/* =====================================================
+   CONFIDENTIAL stamp — slams onto the case-file hero
+   ===================================================== */
+.confidential-stamp {
+    position: absolute;
+    top: 88px;
+    right: 6%;
+    z-index: 3;
+    pointer-events: none;
+    font-family: var(--font-family-mono, monospace);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    color: #a8332a;
+    padding: 6px 12px;
+    border: 2px solid #a8332a;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(168, 51, 42, 0.12);
+    /* Base = settled state (also what reduced-motion/print shows). */
+    opacity: 0.82;
+    transform: rotate(-12deg);
+    animation: stamp-slam 640ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes stamp-slam {
+    0%   { opacity: 0;    transform: rotate(-26deg) scale(1.8); }
+    55%  { opacity: 0.95; transform: rotate(-10deg) scale(0.9); }
+    100% { opacity: 0.82; transform: rotate(-12deg) scale(1); }
+}
+@media (max-width: 640px) {
+    .confidential-stamp { top: 70px; right: 5%; font-size: 12px; padding: 4px 9px; }
+}
+
+/* =====================================================
    ⚠️ KILL-SWITCH — print + reduced motion
    Neutralises EVERY animation in one place. Guarantees the print/PDF path
    (print.css) and accessibility users see fully-visible, static content.
@@ -142,7 +190,8 @@
     .tw-cursor {
         display: none !important;
     }
-    .code-bg {
+    .code-bg,
+    .paper-grain {
         display: none !important;
     }
 }

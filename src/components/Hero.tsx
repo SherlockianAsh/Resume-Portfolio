@@ -142,6 +142,7 @@ export default function Hero({ profile, stats }: HeroProps) {
   return (
     <>
       <section className="hero" ref={heroRef}>
+        <div className="confidential-stamp" aria-hidden="true">CONFIDENTIAL</div>
         <div className="container">
           <div className="hero-content">
             <p className="hero-kicker">Case File · Engineering Dossier</p>

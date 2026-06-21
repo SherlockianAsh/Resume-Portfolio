@@ -23,18 +23,27 @@ export default function Skills({ items }: { items: Skill[] }) {
   const groups = groupByCategory(items);
 
   return (
-    <section className="skills-section">
-      <div className="container">
-        <div className="summary-content">
-          <h2 className="section-title">Skills</h2>
+    <section className="mv-section methods-section" id="methods">
+      <div className="mv-inner">
+        <div className="methods-header">
+          <div>
+            <span className="mv-kicker">// case file no. 02 — methods &amp; instruments</span>
+            <h2 className="mv-section-title">
+              The tools of <em>deduction.</em>
+            </h2>
+          </div>
+          <p className="mv-section-sub">
+            A working detective keeps a tidy kit. Here is mine — sharpened by use, not collected for show.
+          </p>
         </div>
-        <div className="skills-grid">
+
+        <div className="methods-grid">
           {Object.entries(groups).map(([category, skills]) => (
-            <div className="skill-category" key={category}>
-              <h3 className="skill-category-title">{category}</h3>
+            <div className="method-panel" key={category}>
+              <span className="method-panel-title">/ {category}</span>
               {skills.map((skill, i) => (
-                <div className="skill-item" data-reveal-item key={i}>
-                  <span className="skill-name">{skill.skillName}</span>
+                <div className="method-skill-item" data-reveal-item key={i}>
+                  <span className="method-skill-name">{skill.skillName}</span>
                   <span className={`proficiency-badge ${proficiencyClass(skill.proficiencyLevel)}`}>
                     {skill.proficiencyLevel}
                   </span>

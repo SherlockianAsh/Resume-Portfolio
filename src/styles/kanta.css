@@ -1,0 +1,227 @@
+/*
+ * kanta.css — Marlowe-Vane noir hero + Kanta (鏡) magnifying lens
+ *
+ * Loaded by Hero.tsx. Overrides only hero-scope rules from landing.css;
+ * .stats/.stats-section rules are left to landing.css.
+ *
+ * Palette: brass (--primary) on near-black (--bg), parchment (--text)
+ * type. Hairlines at rgba(201,164,76,0.12). No fills — gold is accent.
+ */
+
+/* ─── Hero shell: centered editorial column ─────────────────────────── */
+.hero {
+    position: relative;
+    padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(3rem, 6vw, 5rem);
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Faint gaslight wash, brass-warm, never loud. */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(900px 520px at 50% -10%, rgba(201, 164, 76, 0.10), transparent 65%),
+        radial-gradient(620px 360px at 50% 110%, rgba(201, 164, 76, 0.05), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1.25rem, 2.4vw, 2rem);
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* ─── Kicker: mono "case file" label above the name ─────────────────── */
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.hero-kicker::before,
+.hero-kicker::after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: rgba(201, 164, 76, 0.45);
+}
+
+/* ─── Portrait plate + Kanta lens ───────────────────────────────────── */
+.hero-portrait {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    border-radius: 50%;
+    isolation: isolate;
+}
+
+/* Photograph itself — sepia-leaning, soft brass ring, no heavy shadow. */
+.hero-image,
+.hero-image-placeholder {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(201, 164, 76, 0.28);
+    box-shadow:
+        0 0 0 6px rgba(20, 17, 11, 0.85),
+        0 0 0 7px rgba(201, 164, 76, 0.18),
+        0 18px 48px -22px rgba(0, 0, 0, 0.85);
+    filter: saturate(0.78) contrast(1.02);
+    background: var(--bg-surface);
+    cursor: default;
+    z-index: 1;
+}
+
+.hero-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 6rem;
+    color: var(--primary);
+    background: var(--bg-elevated);
+}
+
+/* The lens. Position is driven by JS (left/top); we own the look. */
+.kanta-lens {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    /* Brass rim — thin inner hairline + outer ring + soft shadow on the photo. */
+    box-shadow:
+        inset 0 0 0 2px var(--primary),
+        inset 0 0 0 3px rgba(20, 17, 11, 0.9),
+        inset 0 0 14px rgba(20, 17, 11, 0.45),
+        0 0 0 1px rgba(201, 164, 76, 0.35),
+        0 10px 28px -10px rgba(0, 0, 0, 0.9);
+    /* Soft glass-glint highlight over the magnified image. */
+    background-blend-mode: normal;
+}
+
+.kanta-lens::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 32% 28%, rgba(255, 248, 230, 0.28), rgba(255, 248, 230, 0) 38%),
+        radial-gradient(circle at 70% 78%, rgba(20, 17, 11, 0.18), rgba(20, 17, 11, 0) 55%);
+    pointer-events: none;
+}
+
+/* ─── Name: serif display, generous tracking ────────────────────────── */
+.hero-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2.6rem, 5.4vw, 4.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--text-heading);
+    margin: 0;
+}
+
+/* ─── Title: mono typewriter, restrained ────────────────────────────── */
+.hero-title {
+    font-family: var(--font-family-mono);
+    font-size: 0.92rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0;
+    position: relative;
+    padding-top: 1.25rem;
+}
+
+.hero-title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 1px;
+    background: rgba(201, 164, 76, 0.45);
+}
+
+/* ─── CTA: brass-outlined button, hover fills with brass ────────────── */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.9rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 0;
+    transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease;
+}
+
+.hero-btn-primary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.hero-btn-primary:hover {
+    background: var(--primary);
+    color: var(--text-on-primary);
+    border-color: var(--primary);
+}
+
+/* ─── Reduced motion: lens & entrance both quiet ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .kanta-lens {
+        /* Static lens, parked over the eyes. JS also disables animation. */
+    }
+}
+
+/* ─── Small screens ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-portrait,
+    .hero-image,
+    .hero-image-placeholder {
+        width: 220px;
+        height: 220px;
+    }
+    .kanta-lens {
+        width: 86px;
+        height: 86px;
+    }
+    .hero-kicker {
+        font-size: 0.66rem;
+        letter-spacing: 0.28em;
+    }
+}

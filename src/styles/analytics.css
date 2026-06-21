@@ -1,6 +1,7 @@
 /**
  * Resume Portfolio - Analytics Dashboard Styles
- * Theme: Baker Street Dark — Amber Gold on Charcoal
+ * Theme: Marlowe-Vane — Noir Detective Editorial
+ * Serif headings, mono numbers/labels, brass hairline accents.
  */
 
 /* =====================================================
@@ -17,36 +18,58 @@
     margin-bottom: var(--space-12);
 }
 
+/* Page heading — display serif, editorial weight */
+.analytics-header .section-title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-normal);
+    color: var(--text-heading);
+    letter-spacing: 0.04em;
+}
+
+/* Subtitle — body text, italic warmth */
 .analytics-subtitle {
-    font-size: var(--text-lg);
+    font-family: var(--font-family);
+    font-size: var(--text-base);
     color: var(--text-muted);
+    font-style: italic;
     margin-top: var(--space-4);
-    max-width: 600px;
+    max-width: 540px;
     margin-left: auto;
     margin-right: auto;
+    line-height: var(--leading-relaxed);
 }
 
 /* =====================================================
-   GitHub Stats Section
+   Section Titles — serif, brass hairline under
    ===================================================== */
 .github-section {
     margin-bottom: var(--space-12);
 }
 
 .github-section-title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-normal);
     color: var(--text-heading);
+    letter-spacing: 0.03em;
     margin-bottom: var(--space-6);
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(201, 164, 76, 0.15);
 }
 
 .github-section-icon {
     color: var(--primary);
+    flex-shrink: 0;
+    opacity: 0.8;
 }
 
+/* =====================================================
+   Stat Cards — mono numbers, brass accents
+   ===================================================== */
 .github-stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -58,30 +81,57 @@
     background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--rounded-lg);
-    padding: var(--space-5);
+    padding: var(--space-5) var(--space-5) var(--space-4);
     text-align: center;
-    transition: all var(--transition-fast);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top brass hairline on each stat card */
+.github-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: rgba(201, 164, 76, 0.2);
+    transition: left var(--transition-fast), right var(--transition-fast);
 }
 
 .github-stat-card:hover {
-    border-color: var(--primary);
+    border-color: rgba(201, 164, 76, 0.35);
     transform: translateY(-2px);
 }
 
-.github-stat-value {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    color: var(--primary);
-    margin-bottom: var(--space-1);
+.github-stat-card:hover::before {
+    left: 10%;
+    right: 10%;
 }
 
+/* Number — mono, brass, large */
+.github-stat-value {
+    font-family: var(--font-family-mono);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-normal);
+    color: var(--primary);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+/* Label — mono, faint, uppercase */
 .github-stat-label {
-    font-size: var(--text-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--text-xs);
     color: var(--text-muted);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
 }
 
 /* =====================================================
-   Top Repos
+   Top Repos Grid
    ===================================================== */
 .top-repos-grid {
     display: grid;
@@ -94,32 +144,40 @@
     border: 1px solid var(--border);
     border-radius: var(--rounded-lg);
     padding: var(--space-5);
-    transition: all var(--transition-fast);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
     text-decoration: none;
     color: var(--text);
     display: flex;
     flex-direction: column;
+    border-left: 2px solid rgba(201, 164, 76, 0.12);
 }
 
 .repo-card:hover,
 .repo-card:focus-visible {
-    border-color: var(--primary);
-    transform: translateY(-2px);
+    border-color: rgba(201, 164, 76, 0.3);
+    border-left-color: var(--primary);
+    background: var(--bg-elevated);
     color: var(--text);
     outline: none;
 }
 
+/* Repo name — body serif, brass-light */
 .repo-name {
+    font-family: var(--font-family);
     font-size: var(--text-base);
     font-weight: var(--font-semibold);
     color: var(--primary-light);
     margin-bottom: var(--space-2);
+    letter-spacing: 0.01em;
 }
 
+/* Description — body serif, muted */
 .repo-desc {
+    font-family: var(--font-family);
     font-size: var(--text-sm);
     color: var(--text-muted);
     line-height: var(--leading-relaxed);
+    font-style: italic;
     margin-bottom: var(--space-3);
     flex: 1;
     display: -webkit-box;
@@ -128,12 +186,15 @@
     overflow: hidden;
 }
 
+/* Meta row — mono, faint labels */
 .repo-meta {
     display: flex;
     align-items: center;
     gap: var(--space-4);
+    font-family: var(--font-family-mono);
     font-size: var(--text-xs);
     color: var(--text-faint);
+    letter-spacing: 0.04em;
 }
 
 .repo-meta-item {
@@ -143,10 +204,11 @@
 }
 
 .repo-lang-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: var(--rounded-full);
     display: inline-block;
+    flex-shrink: 0;
 }
 
 /* =====================================================
@@ -155,7 +217,7 @@
 .site-analytics-section {
     margin-top: var(--space-12);
     padding-top: var(--space-12);
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(201, 164, 76, 0.12);
 }
 
 .goatcounter-placeholder {
@@ -165,13 +227,24 @@
     padding: var(--space-8);
     text-align: center;
     color: var(--text-muted);
+    font-family: var(--font-family);
+    font-style: italic;
+    line-height: var(--leading-relaxed);
 }
 
 .goatcounter-placeholder p {
     margin-bottom: var(--space-3);
 }
 
+.goatcounter-placeholder p:last-child {
+    margin-bottom: 0;
+}
+
 .goatcounter-placeholder a {
+    font-family: var(--font-family-mono);
+    font-style: normal;
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
     color: var(--primary);
     text-decoration: none;
 }
@@ -179,12 +252,19 @@
 .goatcounter-placeholder a:hover {
     color: var(--primary-light);
     text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
+/* =====================================================
+   Loading + Error States
+   ===================================================== */
 .analytics-loading {
     text-align: center;
     padding: var(--space-12);
-    color: var(--text-muted);
+    color: var(--text-faint);
+    font-family: var(--font-family-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
 }
 
 .analytics-error {
@@ -194,6 +274,8 @@
     background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--rounded-lg);
+    font-family: var(--font-family);
+    font-style: italic;
 }
 
 /* =====================================================
@@ -202,6 +284,10 @@
 @media (max-width: 768px) {
     .analytics-section {
         padding: calc(var(--space-12) + 64px) 0 var(--space-12);
+    }
+
+    .analytics-header .section-title {
+        font-size: var(--text-3xl);
     }
 
     .github-stats-grid {
@@ -215,7 +301,7 @@
 
 @media (max-width: 480px) {
     .analytics-subtitle {
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
     }
 
     .github-stats-grid {

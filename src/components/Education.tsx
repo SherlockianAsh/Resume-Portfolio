@@ -5,30 +5,35 @@ export default function Education({ items }: { items: EducationType[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="education-section">
-      <div className="container">
-        <div className="summary-content">
-          <h2 className="section-title">Education</h2>
-        </div>
-        <div className="cards-container">
+    <section className="mv-section credentials-section" id="credentials">
+      <div className="mv-inner">
+        <span className="mv-kicker">// case file no. 04 — credentials</span>
+        <h2 className="mv-section-title">
+          Formal <em>foundations.</em>
+        </h2>
+
+        <div className="credentials-entries">
           {items.map((edu, i) => (
-            <div className="entry-card" key={i}>
-              <div className="entry-card-header">
-                <h3 className="entry-card-title">
-                  {edu.degree}{edu.fieldOfStudy ? ` in ${edu.fieldOfStudy}` : ""}
-                </h3>
-                <span className="entry-card-date">
+            <div className="credentials-entry" key={i}>
+              <div className="credentials-meta">
+                <span className="credentials-date">
                   {formatDateRange(edu.startDate, edu.endDate)}
                 </span>
+                <span className="credentials-institution">{edu.institution}</span>
+                {edu.location && (
+                  <span className="credentials-institution" style={{ opacity: 0.6 }}>
+                    {edu.location}
+                  </span>
+                )}
               </div>
-              <p className="entry-card-subtitle">
-                {edu.institution}{edu.location ? `, ${edu.location}` : ""}
-              </p>
-              {edu.description && (
-                <p className="entry-card-description" style={{ whiteSpace: "pre-line" }}>
-                  {edu.description}
-                </p>
-              )}
+              <div className="credentials-body">
+                <h3 className="credentials-degree">
+                  {edu.degree}{edu.fieldOfStudy ? ` in ${edu.fieldOfStudy}` : ""}
+                </h3>
+                {edu.description && (
+                  <p className="credentials-desc">{edu.description}</p>
+                )}
+              </div>
             </div>
           ))}
         </div>

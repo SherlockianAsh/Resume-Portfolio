@@ -6,7 +6,9 @@ import { humanizeKey } from "../utils";
 import { useAuth } from "../auth/AuthContext";
 import { useCountUp } from "../hooks/useCountUp";
 import Typewriter from "./Typewriter";
+import Kanta from "./Kanta";
 import { prefersReducedMotion } from "../lib/motion";
+import "../styles/kanta.css";
 
 /** Single stat cell — count-up animates 0 → count when scrolled into view. */
 function StatNumber({ count, suffix }: { count: number; suffix: string }) {
@@ -142,25 +144,24 @@ export default function Hero({ profile, stats }: HeroProps) {
       <section className="hero" ref={heroRef}>
         <div className="container">
           <div className="hero-content">
-            {profile.profileImage ? (
-              <img
-                src={`${import.meta.env.BASE_URL}${profile.profileImage}`}
-                alt={profile.fullName}
-                className="hero-image"
-                data-anim
-                onClick={handleImageClick}
-                style={{ cursor: "default" }}
-              />
-            ) : (
-              <div
-                className="hero-image-placeholder"
-                data-anim
-                onClick={handleImageClick}
-                style={{ cursor: "default" }}
-              >
-                {profile.fullName.charAt(0).toUpperCase()}
-              </div>
-            )}
+            <p className="hero-kicker">Case File · Engineering Dossier</p>
+            <div className="hero-portrait" onClick={handleImageClick}>
+              {profile.profileImage ? (
+                <>
+                  <img
+                    src={`${import.meta.env.BASE_URL}${profile.profileImage}`}
+                    alt={profile.fullName}
+                    className="hero-image"
+                    data-anim
+                  />
+                  <Kanta src={`${import.meta.env.BASE_URL}${profile.profileImage}`} />
+                </>
+              ) : (
+                <div className="hero-image-placeholder" data-anim>
+                  {profile.fullName.charAt(0).toUpperCase()}
+                </div>
+              )}
+            </div>
             <h1 className="hero-name" data-anim>{profile.fullName}</h1>
             {profile.title && (
               <p className="hero-title">

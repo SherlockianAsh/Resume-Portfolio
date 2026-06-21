@@ -20,7 +20,7 @@ export default function Navbar({ name }: { name: string }) {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="navbar-brand" onClick={closeMenu}>
-          <div className="navbar-brand-icon">A</div>
+          <div className="navbar-brand-icon">V</div>
           <span className="hide-mobile">{name}</span>
         </Link>
 
@@ -45,7 +45,7 @@ export default function Navbar({ name }: { name: string }) {
             className={`navbar-link${location.pathname === "/" ? " active" : ""}`}
             onClick={closeMenu}
           >
-            Home
+            01 — Dossier
           </Link>
           <Link
             to="/resume"
@@ -66,7 +66,7 @@ export default function Navbar({ name }: { name: string }) {
             className={`navbar-link${location.pathname === "/projects" ? " active" : ""}`}
             onClick={closeMenu}
           >
-            Projects
+            Cases
           </Link>
           <Link
             to="/analytics"
@@ -75,8 +75,8 @@ export default function Navbar({ name }: { name: string }) {
           >
             Analytics
           </Link>
-          <a href="/#contact" className="navbar-link" onClick={closeMenu}>
-            Contact
+          <a href="/#contact" className="navbar-link navbar-link-cta" onClick={closeMenu}>
+            Make Contact
           </a>
         </div>
       </div>

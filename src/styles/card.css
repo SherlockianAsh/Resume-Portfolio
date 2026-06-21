@@ -1,7 +1,7 @@
 /**
  * Resume Portfolio - E-Business Card Styles
- * Theme: Baker Street Dark — Amber Gold on Charcoal
- * Mobile-first, single-screen digital business card
+ * Theme: Marlowe-Vane — Noir Detective Editorial
+ * Brass on deep charcoal, gaslight warmth, typographic restraint.
  */
 
 /* =====================================================
@@ -21,13 +21,15 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center top, rgba(212, 168, 71, 0.05) 0%, transparent 50%);
+    background: radial-gradient(ellipse at center top, rgba(201, 164, 76, 0.04) 0%, transparent 55%);
     pointer-events: none;
 }
 
 .card-loading {
     color: var(--text-muted);
-    font-size: var(--text-lg);
+    font-family: var(--font-family-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
 }
 
 /* =====================================================
@@ -45,15 +47,25 @@
     border: 1px solid var(--border);
     border-radius: var(--rounded-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-xl);
+    box-shadow:
+        0 0 0 1px rgba(201, 164, 76, 0.06),
+        var(--shadow-xl);
 }
 
 /* =====================================================
-   Accent Bar — Gold top stripe
+   Accent Bar — Gold hairline stripe (restrained)
    ===================================================== */
 .card-accent {
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-light));
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-dark) 15%,
+        var(--primary) 50%,
+        var(--primary-light) 75%,
+        transparent
+    );
+    opacity: 0.8;
 }
 
 /* =====================================================
@@ -61,13 +73,24 @@
    ===================================================== */
 .card-profile {
     text-align: center;
-    padding: var(--space-8) var(--space-6) var(--space-4);
+    padding: var(--space-8) var(--space-6) var(--space-5);
 }
 
 .card-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto var(--space-4);
+    width: 96px;
+    height: 96px;
+    margin: 0 auto var(--space-5);
+    position: relative;
+}
+
+/* Subtle brass ring with gap — not a thick border */
+.card-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: var(--rounded-full);
+    border: 1px solid rgba(201, 164, 76, 0.4);
+    pointer-events: none;
 }
 
 .card-avatar-img {
@@ -75,8 +98,7 @@
     height: 100%;
     border-radius: var(--rounded-full);
     object-fit: cover;
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 20px rgba(212, 168, 71, 0.15);
+    border: 2px solid rgba(201, 164, 76, 0.2);
 }
 
 .card-avatar-placeholder {
@@ -87,37 +109,60 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-display);
     font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    border: 3px solid var(--primary);
+    font-weight: var(--font-light);
+    border: 2px solid rgba(201, 164, 76, 0.25);
     color: var(--primary);
 }
 
+/* Name — display serif, generous tracking */
 .card-name {
-    font-size: var(--text-xl);
-    font-weight: var(--font-bold);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: var(--font-normal);
+    letter-spacing: 0.02em;
     color: var(--text-heading);
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-tight);
 }
 
+/* Title — brass, mono label style */
 .card-title {
-    font-size: var(--text-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--text-xs);
     color: var(--primary);
-    font-weight: var(--font-medium);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     margin-bottom: var(--space-1);
+    font-weight: var(--font-normal);
 }
 
+/* Company — faint mono label */
 .card-company {
+    font-family: var(--font-family-mono);
     font-size: var(--text-xs);
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
+    color: var(--text-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* =====================================================
+   Divider hairline between profile and links
+   ===================================================== */
+.card-profile::after {
+    content: '';
+    display: block;
+    margin-top: var(--space-5);
+    height: 1px;
+    background: rgba(201, 164, 76, 0.12);
 }
 
 /* =====================================================
    Contact Links
    ===================================================== */
 .card-links {
-    padding: 0 var(--space-4) var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-4);
 }
 
 .card-link {
@@ -129,19 +174,25 @@
     text-decoration: none;
     color: var(--text);
     transition: all var(--transition-fast);
+    border-bottom: 1px solid transparent;
+}
+
+.card-link:last-child {
+    border-bottom: none;
 }
 
 .card-link:hover {
-    background: var(--bg-elevated);
+    background: rgba(201, 164, 76, 0.05);
     color: var(--primary-light);
 }
 
 .card-link-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--primary-subtle);
+    width: 34px;
+    height: 34px;
+    background: rgba(201, 164, 76, 0.08);
     color: var(--primary);
     border-radius: var(--rounded-md);
+    border: 1px solid rgba(201, 164, 76, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,8 +201,9 @@
 }
 
 .card-link:hover .card-link-icon {
-    background: var(--primary);
-    color: var(--text-on-primary);
+    background: rgba(201, 164, 76, 0.15);
+    border-color: rgba(201, 164, 76, 0.3);
+    color: var(--primary-light);
 }
 
 .card-link-info {
@@ -160,23 +212,34 @@
     min-width: 0;
 }
 
+/* Mono label — uppercase, faint */
 .card-link-label {
-    font-size: var(--text-xs);
+    font-family: var(--font-family-mono);
+    font-size: 0.65rem;
     color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     line-height: 1;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .card-link:hover .card-link-label {
     color: var(--text-muted);
 }
 
+/* Value — body serif, readable */
 .card-link-value {
+    font-family: var(--font-family);
     font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-normal);
+    color: var(--text);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.card-link:hover .card-link-value {
+    color: var(--primary-light);
 }
 
 /* =====================================================
@@ -184,20 +247,28 @@
    ===================================================== */
 .card-qr {
     text-align: center;
-    padding: var(--space-3) var(--space-6);
-    border-top: 1px solid var(--border-light);
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid rgba(201, 164, 76, 0.12);
+    border-bottom: 1px solid rgba(201, 164, 76, 0.12);
 }
 
 .card-qr-img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     margin: 0 auto var(--space-2);
-    border-radius: var(--rounded-md);
+    border-radius: var(--rounded);
+    display: block;
+    /* Subtle inset brass frame */
+    outline: 1px solid rgba(201, 164, 76, 0.15);
+    outline-offset: 3px;
 }
 
 .card-qr-label {
+    font-family: var(--font-family-mono);
     font-size: var(--text-xs);
     color: var(--text-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     margin-bottom: 0;
 }
 
@@ -215,35 +286,43 @@
     flex: 1;
     padding: var(--space-3) var(--space-4);
     border-radius: var(--rounded-md);
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
+    font-family: var(--font-family-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     transition: all var(--transition-fast);
-    border: none;
+    border: 1px solid transparent;
 }
 
+/* Primary — brass fill */
 .card-btn-save {
     background: var(--primary);
     color: var(--text-on-primary);
+    border-color: var(--primary);
 }
 
 .card-btn-save:hover {
-    background: var(--primary-dark);
+    background: var(--primary-light);
+    border-color: var(--primary-light);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(212, 168, 71, 0.3);
+    box-shadow: 0 4px 16px rgba(201, 164, 76, 0.25);
 }
 
+/* Secondary — ghost brass border */
 .card-btn-portfolio {
-    background: var(--bg-elevated);
-    color: var(--text);
-    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    border-color: rgba(201, 164, 76, 0.25);
 }
 
 .card-btn-portfolio:hover {
-    background: var(--border);
-    color: var(--text-heading);
+    background: rgba(201, 164, 76, 0.06);
+    color: var(--primary-light);
+    border-color: rgba(201, 164, 76, 0.5);
     transform: translateY(-1px);
 }
 
@@ -258,7 +337,7 @@
     }
 
     .card-profile {
-        padding: var(--space-6) var(--space-4) var(--space-3);
+        padding: var(--space-6) var(--space-4) var(--space-4);
     }
 
     .card-avatar {
@@ -267,12 +346,12 @@
     }
 
     .card-name {
-        font-size: var(--text-lg);
+        font-size: var(--text-xl);
     }
 
     .card-qr-img {
-        width: 100px;
-        height: 100px;
+        width: 96px;
+        height: 96px;
     }
 }
 

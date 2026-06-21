@@ -5,22 +5,23 @@ export default function Projects({ items }: { items: Project[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="projects-section">
-      <div className="container">
-        <div className="summary-content">
-          <h2 className="section-title">Projects</h2>
-        </div>
-        <div className="cards-container">
+    <section className="mv-section cases-section" id="cases">
+      <div className="mv-inner">
+        <span className="mv-kicker">// case files — notable investigations</span>
+        <h2 className="mv-section-title">
+          Closed <em>cases.</em>
+        </h2>
+
+        <div className="cases-entries">
           {items.map((project, i) => (
-            <div className="entry-card" key={i}>
-              <div className="entry-card-header">
-                <h3 className="entry-card-title">
+            <div className="case-entry" key={i}>
+              <div className="case-entry-header">
+                <h3 className="case-title">
                   {project.projectUrl ? (
                     <a
                       href={project.projectUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: "inherit" }}
                     >
                       {project.projectName}
                     </a>
@@ -28,17 +29,17 @@ export default function Projects({ items }: { items: Project[] }) {
                     project.projectName
                   )}
                 </h3>
-                <span className="entry-card-date">
+                <span className="case-date">
                   {formatDateRange(project.startDate, project.endDate)}
                 </span>
               </div>
               {project.description && (
-                <p className="entry-card-description">{project.description}</p>
+                <p className="case-desc">{project.description}</p>
               )}
               {project.technologiesUsed && (
-                <div className="project-card-tech">
+                <div className="case-tech">
                   {project.technologiesUsed.split(", ").map((tech, j) => (
-                    <span className="tech-tag" key={j}>{tech}</span>
+                    <span className="case-tech-tag" key={j}>{tech}</span>
                   ))}
                 </div>
               )}

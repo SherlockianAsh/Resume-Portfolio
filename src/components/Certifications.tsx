@@ -5,29 +5,29 @@ export default function Certifications({ items }: { items: Certification[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="certifications-section">
-      <div className="container">
-        <div className="summary-content">
-          <h2 className="section-title">Certifications</h2>
-        </div>
-        <div className="cards-container">
+    <section className="mv-section accreditations-section" id="accreditations">
+      <div className="mv-inner">
+        <span className="mv-kicker">// accreditations</span>
+        <h2 className="mv-section-title">
+          Verified <em>credentials.</em>
+        </h2>
+
+        <div className="accreditations-grid">
           {items.map((cert, i) => (
-            <div className="entry-card" key={i}>
-              <div className="entry-card-header">
-                <h3 className="entry-card-title">{cert.certName}</h3>
-                {cert.issueDate && (
-                  <span className="entry-card-date">{formatMonth(cert.issueDate)}</span>
-                )}
-              </div>
-              <p className="entry-card-subtitle">{cert.issuingOrg}</p>
+            <div className="accreditation-card" key={i}>
+              <h3 className="accreditation-name">{cert.certName}</h3>
+              <span className="accreditation-org">{cert.issuingOrg}</span>
+              {cert.issueDate && (
+                <span className="accreditation-date">{formatMonth(cert.issueDate)}</span>
+              )}
               {cert.credentialUrl && (
                 <a
                   href={cert.credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontSize: "var(--text-sm)", color: "var(--primary)" }}
+                  className="accreditation-link"
                 >
-                  View Credential
+                  View credential →
                 </a>
               )}
             </div>

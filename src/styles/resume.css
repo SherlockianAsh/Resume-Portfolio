@@ -1,7 +1,10 @@
 /**
  * Resume Portfolio - Resume Page Styles
- * Clean ATS-friendly resume layout
- * Theme: Baker Street Dark — dark page, white resume document
+ * Theme: Marlowe-Vane — Noir Detective Editorial
+ *
+ * Screen: dark page wrapping a crisp white document — editorial warmth.
+ * Print: handled entirely by print.css (kill-switch strips all decoration).
+ * ATS compliance preserved: the .resume document stays light-on-white.
  */
 
 /* =====================================================
@@ -19,6 +22,7 @@
     padding: var(--space-6);
 }
 
+/* Action row — mono labels, ghost brass buttons */
 .resume-actions {
     display: flex;
     gap: var(--space-3);
@@ -27,39 +31,62 @@
 }
 
 /* =====================================================
-   Resume Document (stays white for ATS/print)
+   Resume Document
+   White background + dark text = ATS-safe & printable.
+   Marlowe-Vane touch: serif type, brass hairline rules.
    ===================================================== */
 .resume {
     background: var(--white);
-    color: #1F2937;
+    color: #1a1208;
     padding: var(--space-10);
-    box-shadow: var(--shadow-xl);
+    box-shadow:
+        0 0 0 1px rgba(201, 164, 76, 0.1),
+        var(--shadow-xl);
     border-radius: var(--rounded-lg);
+    font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+    line-height: var(--leading-relaxed);
 }
 
 /* =====================================================
-   Resume Header
+   Resume Header — display serif, centred, brass rule
    ===================================================== */
 .resume-header {
     text-align: center;
     padding-bottom: var(--space-6);
-    border-bottom: 2px solid #111827;
+    border-bottom: 1px solid rgba(201, 164, 76, 0.35);
     margin-bottom: var(--space-6);
+    position: relative;
+}
+
+/* Second, thinner decorative rule offset below */
+.resume-header::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: rgba(201, 164, 76, 0.15);
 }
 
 .resume-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: var(--text-4xl);
-    font-weight: var(--font-bold);
-    color: #111827;
+    font-weight: var(--font-normal);
+    color: #111;
     margin-bottom: var(--space-2);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    line-height: var(--leading-tight);
 }
 
 .resume-title {
-    font-size: var(--text-lg);
-    color: #4B5563;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: var(--text-base);
+    color: #4a3e28;
+    font-style: italic;
     margin-bottom: var(--space-4);
+    letter-spacing: 0.02em;
 }
 
 .resume-contact {
@@ -67,8 +94,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--space-4);
-    font-size: var(--text-sm);
-    color: #374151;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: var(--text-xs);
+    color: #4a4030;
+    letter-spacing: 0.03em;
 }
 
 .resume-contact-item {
@@ -77,11 +106,22 @@
     gap: var(--space-2);
 }
 
+/* Dot separator between contact items */
+.resume-contact-item + .resume-contact-item::before {
+    content: '·';
+    color: #b8922e;
+    margin-right: var(--space-4);
+    font-style: normal;
+}
+
 .resume-contact a {
-    color: #374151;
+    color: #4a4030;
     text-decoration: none;
 }
-.resume-contact a:hover { color: #B8922E; }
+
+.resume-contact a:hover {
+    color: #B8922E;
+}
 
 /* =====================================================
    Resume Sections
@@ -90,15 +130,18 @@
     margin-bottom: var(--space-6);
 }
 
+/* Section title: display serif, small-caps feel via letter-spacing */
 .resume-section-title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
-    color: #111827;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: var(--text-xl);
+    font-weight: var(--font-normal);
+    color: #111;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
     padding-bottom: var(--space-2);
-    border-bottom: 2px solid #111827;
+    border-bottom: 1px solid rgba(201, 164, 76, 0.4);
     margin-bottom: var(--space-4);
+    line-height: var(--leading-tight);
 }
 
 /* =====================================================
@@ -107,7 +150,10 @@
 .resume-entry {
     margin-bottom: var(--space-5);
 }
-.resume-entry:last-child { margin-bottom: 0; }
+
+.resume-entry:last-child {
+    margin-bottom: 0;
+}
 
 .resume-entry-header {
     display: flex;
@@ -119,27 +165,36 @@
 }
 
 .resume-entry-title {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-base);
-    font-weight: var(--font-bold);
-    color: #111827;
+    font-weight: var(--font-semibold);
+    color: #111;
     margin-bottom: 0;
 }
 
+/* Date: mono, faint, right-aligned */
 .resume-entry-date {
-    font-size: var(--text-sm);
-    color: #4B5563;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: var(--text-xs);
+    color: #6a5a3a;
     white-space: nowrap;
+    letter-spacing: 0.03em;
+    padding-top: 2px;
 }
 
+/* Subtitle: italic, warm brown */
 .resume-entry-subtitle {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
-    color: #374151;
+    color: #5a4830;
+    font-style: italic;
     margin-bottom: var(--space-2);
 }
 
 .resume-entry-description {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
-    color: #374151;
+    color: #2a2018;
     line-height: var(--leading-relaxed);
 }
 
@@ -154,9 +209,10 @@
 }
 
 /* =====================================================
-   Skills
+   Skills — chips defined in motion.css, layout here
    ===================================================== */
 .resume-skills-list {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
     color: #374151;
     line-height: var(--leading-relaxed);
@@ -167,17 +223,21 @@
    ===================================================== */
 .resume-cert {
     margin-bottom: var(--space-2);
+    line-height: var(--leading-relaxed);
 }
 
 .resume-cert-name {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    color: #111827;
+    color: #111;
 }
 
 .resume-cert-org {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
-    color: #4B5563;
+    color: #5a4830;
+    font-style: italic;
 }
 
 /* =====================================================
@@ -188,24 +248,29 @@
 }
 
 .resume-project-name {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
     font-weight: var(--font-semibold);
-    color: #111827;
+    color: #111;
 }
 
 .resume-project-tech {
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
     font-size: var(--text-xs);
-    color: #6B7280;
+    color: #7a6040;
     margin-bottom: var(--space-1);
+    letter-spacing: 0.03em;
 }
 
 .resume-project-desc {
+    font-family: 'Spectral', Georgia, serif;
     font-size: var(--text-sm);
-    color: #374151;
+    color: #2a2018;
+    line-height: var(--leading-relaxed);
 }
 
 /* =====================================================
-   Skills Grid (Landing Page)
+   Skills Grid (Landing Page — retained)
    ===================================================== */
 .skills-section {
     padding: var(--space-12) 0;
@@ -228,14 +293,15 @@
 }
 
 .skill-category-title {
-    font-size: var(--text-sm);
-    font-weight: var(--font-bold);
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
     color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     margin-bottom: var(--space-4);
     padding-bottom: var(--space-2);
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 1px solid rgba(201, 164, 76, 0.2);
 }
 
 .skill-item {
@@ -246,16 +312,19 @@
 }
 
 .skill-name {
+    font-family: var(--font-family);
     font-size: var(--text-sm);
     color: var(--text);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-normal);
 }
 
 .proficiency-badge {
+    font-family: var(--font-family-mono);
     font-size: var(--text-xs);
     font-weight: var(--font-medium);
     padding: var(--space-1) var(--space-3);
     border-radius: var(--rounded-full);
+    letter-spacing: 0.04em;
 }
 
 .proficiency-expert {
@@ -298,20 +367,22 @@
     margin: var(--space-8) auto 0;
 }
 
+/* Entry cards: brass left border, clean hover */
 .entry-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: var(--rounded-lg);
     padding: var(--space-6);
     margin-bottom: var(--space-4);
-    border-left: 4px solid var(--primary);
-    transition: border-color var(--transition-fast);
+    border-left: 2px solid rgba(201, 164, 76, 0.4);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
 .entry-card:last-child { margin-bottom: 0; }
 
 .entry-card:hover {
-    border-color: var(--primary-light);
+    border-left-color: var(--primary);
+    background: var(--bg-surface);
 }
 
 .entry-card-header {
@@ -324,26 +395,33 @@
 }
 
 .entry-card-title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--font-normal);
     color: var(--text-heading);
     margin-bottom: 0;
+    letter-spacing: 0.01em;
 }
 
 .entry-card-date {
-    font-size: var(--text-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--text-xs);
     color: var(--text-muted);
     white-space: nowrap;
+    letter-spacing: 0.04em;
+    padding-top: 4px;
 }
 
 .entry-card-subtitle {
+    font-family: var(--font-family);
     font-size: var(--text-sm);
     color: var(--primary);
-    font-weight: var(--font-medium);
+    font-style: italic;
     margin-bottom: var(--space-3);
 }
 
 .entry-card-description {
+    font-family: var(--font-family);
     font-size: var(--text-sm);
     color: var(--text-muted);
     line-height: var(--leading-relaxed);
@@ -359,7 +437,7 @@
     margin-bottom: var(--space-1);
 }
 
-/* Project card specifics */
+/* Project card tech tags */
 .project-card-tech {
     display: flex;
     flex-wrap: wrap;
@@ -368,12 +446,14 @@
 }
 
 .tech-tag {
+    font-family: var(--font-family-mono);
     font-size: var(--text-xs);
     padding: var(--space-1) var(--space-2);
     background: var(--primary-subtle);
     color: var(--primary);
     border-radius: var(--rounded);
-    border: 1px solid rgba(212, 168, 71, 0.2);
+    border: 1px solid rgba(201, 164, 76, 0.18);
+    letter-spacing: 0.04em;
 }
 
 /* =====================================================
@@ -383,16 +463,23 @@
     .resume-page { padding-top: 70px; }
     .resume-container { padding: var(--space-3); }
     .resume { padding: var(--space-6); }
+
     .resume-name { font-size: var(--text-2xl); }
-    .resume-title { font-size: var(--text-base); }
+    .resume-title { font-size: var(--text-sm); }
+
     .resume-contact {
         flex-direction: column;
         align-items: center;
         gap: var(--space-2);
     }
+
+    /* Hide the dot-separators in column layout */
+    .resume-contact-item + .resume-contact-item::before {
+        display: none;
+    }
+
     .resume-entry-header { flex-direction: column; }
     .resume-actions { justify-content: center; }
-
     .skills-grid { grid-template-columns: 1fr; }
     .entry-card-header { flex-direction: column; }
 }

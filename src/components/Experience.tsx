@@ -5,29 +5,39 @@ export default function Experience({ items }: { items: ExperienceType[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="experience-section">
-      <div className="container">
-        <div className="summary-content">
-          <h2 className="section-title">Work Experience</h2>
-        </div>
-        <div className="cards-container">
+    <section className="mv-section history-section" id="history">
+      <div className="mv-inner">
+        <span className="mv-kicker">// case file no. 03 — case history</span>
+        <h2 className="mv-section-title">
+          A record of <em>prior engagements.</em>
+        </h2>
+
+        <div className="history-entries">
           {items.map((exp, i) => (
-            <div className="entry-card" key={i}>
-              <div className="entry-card-header">
-                <h3 className="entry-card-title">{exp.position}</h3>
-                <span className="entry-card-date">
+            <div className="history-entry" key={i}>
+              <div className="history-meta">
+                <span className="history-date">
                   {formatDateRange(exp.startDate, exp.endDate)}
                 </span>
+                {!exp.endDate && (
+                  <span className="history-status">Active case</span>
+                )}
               </div>
-              <p className="entry-card-subtitle">
-                {exp.company}{exp.location ? `, ${exp.location}` : ""}
-              </p>
-              {exp.description && (
-                <div
-                  className="entry-card-description"
-                  dangerouslySetInnerHTML={{ __html: parseDescription(exp.description) }}
-                />
-              )}
+              <div className="history-body">
+                <div className="history-entry-header">
+                  <h3 className="history-title">{exp.position}</h3>
+                  <span className="history-org">{exp.company}</span>
+                  {exp.location && (
+                    <span className="history-location">{exp.location}</span>
+                  )}
+                </div>
+                {exp.description && (
+                  <div
+                    className="history-desc"
+                    dangerouslySetInnerHTML={{ __html: parseDescription(exp.description) }}
+                  />
+                )}
+              </div>
             </div>
           ))}
         </div>

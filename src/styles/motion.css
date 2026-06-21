@@ -39,14 +39,13 @@
 }
 
 /* =====================================================
-   Terminal-prompt section titles
-   Landing section headers (.section-title) get a gold "> " prompt prefix.
-   Opt-in elsewhere with the "term-title" class.
+   Terminal-prompt prefix — opt-in via the "term-title" class only.
+   (The Marlowe-Vane editorial design uses "// case file" mono kickers
+   instead, so the global .section-title prefix was retired.)
    ===================================================== */
-.term-title::before,
-.section-title::before {
+.term-title::before {
     content: "> ";
-    color: var(--primary, #D4A847);
+    color: var(--primary, #c9a44c);
     font-family: var(--font-family-mono, monospace);
     font-weight: var(--font-bold);
 }

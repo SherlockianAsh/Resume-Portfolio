@@ -20,7 +20,16 @@ export default function Navbar({ name }: { name: string }) {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="navbar-brand" onClick={closeMenu}>
-          <div className="navbar-brand-icon">V</div>
+          <div className="navbar-brand-icon" aria-label="Ashlock Tech Solutions">
+            {/* The lens that reads code — magnifier enclosing a >_ terminal prompt.
+                Knockout finish: currentColor inherits --text-on-primary on the brass chip. */}
+            <svg viewBox="0 0 120 120" width="22" height="22" fill="none" aria-hidden="true">
+              <circle cx="50" cy="50" r="38" stroke="currentColor" strokeWidth="7" />
+              <line x1="78" y1="78" x2="104" y2="104" stroke="currentColor" strokeWidth="11" strokeLinecap="round" />
+              <path d="M34 40 l13 10 l-13 10" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="52" y="58" width="20" height="7" rx="3.5" fill="currentColor" />
+            </svg>
+          </div>
           <span className="hide-mobile">{name}</span>
         </Link>
 

@@ -3,51 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Casebook: the "human verification" scam on macOS, taken apart without running it</title>
+<title>The Adventure of the False Verification — The Casebook, Ashlock Tech</title>
 <meta name="description" content="A fake human-verification page tells Mac users to paste a command into Terminal. All three layers were dissected in 2 h 6 min without executing any of them. Tools, method, indicators.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d1117;--panel:#151c26;--line:#263041;--ink:#e8edf4;--dim:#93a0b4;--amber:#f2b441;--red:#ef6a5b;--green:#5fd0a0;
---sans:"Segoe UI","Helvetica Neue",Arial,sans-serif;--mono:"Cascadia Mono",Consolas,"Courier New",monospace}
+:root{--bg:#14110b;--surface:#1c1810;--elev:#251f15;--border:#3a3122;--hair:rgba(201,164,76,.12);--hair2:rgba(201,164,76,.32);
+--gold:#c9a44c;--gold-l:#dcc488;--ink:#e9e3d4;--head:#f4efe2;--muted:#9a8f76;--faint:#6f6750;
+--serif:'Spectral',Georgia,'Times New Roman',serif;--display:'Cormorant Garamond',Georgia,serif;--mono:'JetBrains Mono',Consolas,monospace}
 *{box-sizing:border-box}
 html{background:var(--bg)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
-main{max-width:820px;margin:0 auto;padding:48px 20px 72px}
-h1{font-size:clamp(28px,6vw,44px);line-height:1.12;margin:0 0 14px;letter-spacing:-.4px}
-.byline{font-family:var(--mono);font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin:0 0 24px}
-.byline strong{font-weight:400}
-h2{font-family:var(--mono);font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber);margin:52px 0 14px;padding-top:22px;border-top:1px solid var(--line)}
-h3{font-size:20px;margin:30px 0 8px}
-p{margin:0 0 14px}
-a{color:var(--amber)}
-strong{font-weight:600}
-blockquote{margin:0 0 20px;padding:12px 16px;border-left:4px solid var(--line);color:var(--dim);font-size:15px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.7;font-weight:400;-webkit-text-size-adjust:100%}
+a{color:var(--gold-l);text-decoration-color:var(--hair2);text-underline-offset:3px}
+a:hover{color:var(--gold)}
+.top{max-width:860px;margin:0 auto;padding:22px 22px 0;display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--gold)}
+header{max-width:860px;margin:0 auto;padding:64px 22px 8px;text-align:center}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,7vw,64px);line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin:0 0 22px}
+h1 em{font-style:italic;font-weight:400;color:var(--gold-l)}
+.sub{font-size:17px;line-height:1.7;font-weight:300;color:var(--muted);max-width:600px;margin:0 auto}
+.rule{width:80px;height:1px;background:var(--hair2);margin:34px auto 0}
+.epigraph{max-width:560px;margin:34px auto 0;font-family:var(--display);font-style:italic;font-size:22px;line-height:1.4;color:var(--gold-l)}
+.epigraph cite{display:block;margin-top:10px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+main{max-width:780px;margin:0 auto;padding:28px 22px 80px}
+h2{font-family:var(--display);font-weight:500;font-size:30px;line-height:1.2;color:var(--head);margin:58px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--hair);display:flex;align-items:baseline;gap:14px}
+h2 .num{font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);font-weight:400;flex:none}
+h3{font-family:var(--display);font-weight:600;font-size:23px;color:var(--head);margin:34px 0 8px}
+p{margin:0 0 16px}
+strong{font-weight:600;color:var(--head)}
+em{color:var(--muted)}
+blockquote{margin:0 0 8px;padding:12px 18px;border-left:2px solid var(--hair2);color:var(--muted);font-size:15.5px;font-style:italic}
 blockquote p{margin:0}
-ul,ol{margin:0 0 16px;padding-left:22px}
-li{margin-bottom:6px}
-li em,p em{color:var(--dim)}
-code{font-family:var(--mono);font-size:.88em;background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere;word-break:break-word}
-.tbl{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
-table{border-collapse:collapse;width:100%;font-size:15.5px}
-th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
-th{font-family:var(--mono);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);font-weight:400}
+ul,ol{margin:0 0 18px;padding-left:24px}
+li{margin-bottom:7px}
+li::marker{color:var(--gold)}
+code{font-family:var(--mono);font-size:.8em;background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1px 5px;color:var(--gold-l);overflow-wrap:anywhere;word-break:break-word}
+.tbl{overflow-x:auto;margin:0 0 22px;border:1px solid var(--border);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:11px 15px;border-bottom:1px solid var(--hair)}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:400;background:var(--elev)}
 tr:last-child td{border-bottom:0}
-td:first-child{white-space:nowrap;color:var(--ink);font-weight:600}
+td:first-child{white-space:nowrap;color:var(--head);font-weight:500}
 thead th:empty{display:none}
-hr{border:0;border-top:1px solid var(--line);margin:48px 0 18px}
-hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
-@media (max-width:560px){body{font-size:16px}td:first-child{white-space:normal}th,td{padding:9px 10px}}
+hr{border:0;width:80px;height:1px;background:var(--hair2);margin:60px auto 22px}
+hr+p{text-align:center;color:var(--faint);font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+hr+p em{color:inherit;font-style:normal}
+@media (max-width:560px){body{font-size:17px}header{padding-top:44px}h2{font-size:25px;margin-top:46px}td:first-child{white-space:normal}th,td{padding:9px 11px}.epigraph{font-size:19px}}
 </style>
 </head>
 <body>
+<nav class="top"><a href="/">Ashlock Tech</a><a href="/projects">The Casebook</a></nav>
+<header>
+<p class="eyebrow">The Casebook · Case file · 13 November 2026</p>
+<h1>The Adventure of the <em>False Verification</em></h1>
+<p class="sub">A page asked a Mac user to paste one line into Terminal. Three layers, taken apart without running any of them. Holmes: Asyrof. Watson: Mei.</p>
+<div class="rule" aria-hidden="true"></div>
+<p class="epigraph">“It is a capital mistake to theorise before one has data.”<cite>Sherlock Holmes, A Scandal in Bohemia</cite></p>
+</header>
 <main>
-<h1>Casebook: the "human verification" page that asks a Mac user to paste into Terminal</h1>
-<p class="byline"><strong>Ashlock Tech · 13 November 2026 · macOS · ClickFix lure, three-layer stealer</strong></p>
 <blockquote>
 <p>Public edition. The private casebook holds the exhibits; the samples never left the lab. Every attacker address below is defanged (<code>hxxps</code>, <code>[.]</code>).</p>
 </blockquote>
-<h2>Ringkasan (BM)</h2>
+<h2><span class="num">I.</span> Ringkasan (BM)</h2>
 <p>Seorang pengguna Threads bertanya tentang satu "human verification" yang menyuruh pengguna Mac buka Terminal dan paste satu command. Itu scam. Kami ambil ketiga-tiga layer ke dalam makmal terasing dan membedahnya dalam 2 jam 6 minit <strong>tanpa menjalankan satu layer pun</strong>. Hasilnya: alamat tempat data curi dihantar, dua alamat wallet untuk tukar alamat yang di-copy, dan reka bentuk penuh cara ia mengelak analisis. Siapa di belakangnya belum diketahui. Kalau anda nampak halaman begini: tutup. CAPTCHA sebenar tidak pernah minta anda buka Terminal.</p>
-<h2>Result</h2>
+<h2><span class="num">II.</span> Result</h2>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -78,7 +101,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 </tr>
 </tbody>
 </table></div>
-<h2>The chain</h2>
+<h2><span class="num">III.</span> The chain</h2>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -116,7 +139,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 </tbody>
 </table></div>
 <p>The clipboard command has the form <code>echo '&lt;base64&gt;' | base64 -d | zsh</code>. Decoded, it pipes a download from the delivery domain into <code>osascript -l JavaScript</code>.</p>
-<h2>Tools</h2>
+<h2><span class="num">IV.</span> Tools</h2>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -171,7 +194,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 </tr>
 </tbody>
 </table></div>
-<h2>Timeline (MYT)</h2>
+<h2><span class="num">V.</span> Timeline (MYT)</h2>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -218,7 +241,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 </tr>
 </tbody>
 </table></div>
-<h2>The dissection</h2>
+<h2><span class="num">VI.</span> The dissection</h2>
 <h3>1. Passive first</h3>
 <p>DNS through a public resolver, the registration record and certificate transparency. Both domains were four days old and registered <strong>22 seconds apart</strong> at the same registrar, behind Cloudflare.</p>
 <h3>2. Capture without being seen, store without being run</h3>
@@ -238,7 +261,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 <p>Configuration sits in records of the form <code>key : nonce : ciphertext</code>. The record key is not the working key. The working key is derived from the record key, a 16-byte value and a 64-bit <strong>status</strong>, and the status is the XOR of eight values, one per anti-analysis check that passes.</p>
 <p>So the malware never decides "I am being analysed". On an analysis machine the status is wrong, the cipher rejects the record, and it cannot read its own configuration.</p>
 <p>Each value function was emulated alone. Of the 256 possible subsets of the eight values, the sample's own cipher accepted exactly one. With it, the records opened: the tag <code>rocket</code>, the upload address, an EVM wallet address and a 32-byte value. PyNaCl, given the captured working keys, returned the same plaintext for three of the four records.</p>
-<h2>Seen, inferred, unknown</h2>
+<h2><span class="num">VII.</span> Seen, inferred, unknown</h2>
 <p><strong>Seen (in the code or the records)</strong>
 - The upload address, read by a function that calls the HTTP POST builder.
 - A Monero address pattern beside an embedded Monero address; an embedded EVM address.
@@ -256,7 +279,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 - What the server answers. It was never contacted.
 - Whether the wallets have received funds.
 - The x86_64 half of layer 3 and a 56,240-byte block read by its main function.</p>
-<h2>What went wrong on the way</h2>
+<h2><span class="num">VIII.</span> What went wrong on the way</h2>
 <ul>
 <li>The embedded text was first treated as one encrypted record. It is four, packed end to end.</li>
 <li>A sweep was reported as covering every function. It had covered about 1,200 of some 4,800.</li>
@@ -264,7 +287,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 <li>Two key-guessing attempts failed (1,440 and 2,592 combinations of hardware values) before it was clear the status depends only on pass or fail.</li>
 <li>Emulator fixes that cost time: the CPU model must be <code>UC_CPU_ARM64_MAX</code> (Rust uses LSE atomics); thread-local storage needs a stub; <code>r2 aa</code> alone finds about a quarter of the functions, <code>aa; aac</code> finds the rest.</li>
 </ul>
-<h2>Indicators</h2>
+<h2><span class="num">IX.</span> Indicators</h2>
 <div class="tbl"><table>
 <thead>
 <tr>
@@ -311,7 +334,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 </tr>
 </tbody>
 </table></div>
-<h2>If you saw this page</h2>
+<h2><span class="num">X.</span> If you saw this page</h2>
 <p><strong>Did not paste:</strong> close the page. No real CAPTCHA asks you to open Terminal, Run or PowerShell.</p>
 <p><strong>Pasted and pressed Enter on a Mac:</strong>
 1. Disconnect the Mac from the network.
@@ -319,7 +342,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 3. From another device, sign out of every account everywhere, then change passwords, starting with email and banking. Signing out is what cancels a stolen session.
 4. Move any crypto funds to a wallet created on a clean device.
 5. Remove Full Disk Access from any unknown "Finder". Treat the Mac as compromised until it is rebuilt.</p>
-<h2>Limits of this result</h2>
+<h2><span class="num">XI.</span> Limits of this result</h2>
 <ul>
 <li>Nothing ran, so capability is seen and use is inferred. No upload and no wallet swap was observed.</li>
 <li>Only the arm64 half of layer 3 was analysed.</li>
@@ -328,7 +351,7 @@ hr+p{color:var(--dim);font-family:var(--mono);font-size:14px}
 <li>Two large threat-intelligence databases could not be read, so "not yet public" is a weak statement.</li>
 <li>This is one case with one model. It shows this work went through; it is not a measured rate.</li>
 </ul>
-<h2>Rules kept</h2>
+<h2><span class="num">XII.</span> Rules kept</h2>
 <ul>
 <li>No layer was executed on any system.</li>
 <li>No sample left the lab.</li>
